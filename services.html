@@ -1,0 +1,864 @@
+<!DOCTYPE html>
+<html lang="en">
+    <!--<< Header Area >>-->
+    <head>
+        <!-- ========== Meta Tags ========== -->
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="author" content="Pixel-plus">
+        <meta name="description" content="STACKLY - Real Estate">
+        <!-- ======== Page title ============ -->
+        <title>STACKLY - Real Estate</title>
+        <!--<< Favcion >>-->
+        <link rel="shortcut icon" href="assets/img/favicon.svg">
+        <!--<< Bootstrap min.css >>-->
+        <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+        <!--<< All Min Css >>-->
+        <link rel="stylesheet" href="assets/css/all.min.css">
+        <!--<< Animate.css >>-->
+        <link rel="stylesheet" href="assets/css/animate.css">
+        <!--<< Magnific Popup.css >>-->
+        <link rel="stylesheet" href="assets/css/magnific-popup.css">
+        <!--<< MeanMenu.css >>-->
+        <link rel="stylesheet" href="assets/css/meanmenu.css">
+        <!--<< Swiper Bundle.css >>-->
+        <link rel="stylesheet" href="assets/css/swiper-bundle.min.css">
+        <!--<< Nice Select.css >>-->
+        <link rel="stylesheet" href="assets/css/nice-select.css">
+        <!--<< Flacticon.css >>-->
+        <link rel="stylesheet" href="assets/css/flacticon.css">
+        <!--<< Main.css >>-->
+        <link rel="stylesheet" href="assets/css/main.css">
+    </head>
+    <body class="stackly-main-page">
+
+        <!-- Preloader Start -->
+        <div id="preloader" class="preloader">
+            <div class="animation-preloader">
+                <div class="spinner">                
+                </div>
+                <div class="txt-loading">
+                                <span data-text-preloader="S" class="letters-loading">
+                                    S
+                                </span>
+                                <span data-text-preloader="T" class="letters-loading">
+                                    T
+                                </span>
+                                <span data-text-preloader="A" class="letters-loading">
+                                    A
+                                </span>
+                                <span data-text-preloader="C" class="letters-loading">
+                                    C
+                                </span>
+                                <span data-text-preloader="K" class="letters-loading">
+                                    K
+                                </span>
+                                <span data-text-preloader="L" class="letters-loading">
+                                    L
+                                </span>
+                                <span data-text-preloader="Y" class="letters-loading">
+                                    Y
+                                </span>
+                            </div>
+                <p class="text-center">Loading</p>
+            </div>
+            <div class="loader">
+                <div class="row">
+                    <div class="col-3 loader-section section-left">
+                        <div class="bg"></div>
+                    </div>
+                    <div class="col-3 loader-section section-left">
+                        <div class="bg"></div>
+                    </div>
+                    <div class="col-3 loader-section section-right">
+                        <div class="bg"></div>
+                    </div>
+                    <div class="col-3 loader-section section-right">
+                        <div class="bg"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Back To Top Start -->
+        <button type="button" id="back-top" class="back-to-top" aria-label="Back to top" title="Back to top">
+            <i class="fa-regular fa-arrow-up"></i>
+        </button>
+
+        <!-- GT MouseCursor Start -->
+        <div class="mouseCursor cursor-outer"></div>
+        <div class="mouseCursor cursor-inner"></div>
+
+       
+         <!-- Offcanvas Area Start -->
+        <div class="fix-area">
+            <div class="offcanvas__info">
+                <div class="offcanvas__wrapper">
+                    <div class="offcanvas__content">
+                        <div class="offcanvas__top mb-5 d-flex justify-content-between align-items-center">
+                            <div class="offcanvas__logo">
+                                <a href="index.html">
+                                    <img src="assets/img/logo/black-logo.svg" alt="logo-img">
+                                </a>
+                            </div>
+                            <div class="offcanvas__close">
+                                <button>
+                                <i class="fas fa-times"></i>
+                                </button>
+                            </div>
+                        </div>
+                        <p class="text d-none d-xl-block">
+                            Nullam dignissim, ante scelerisque the  is euismod fermentum odio sem semper the is erat, a feugiat leo urna eget eros. Duis Aenean a imperdiet risus.
+                        </p>
+                        <div class="mobile-menu fix mb-3"></div>
+                        <div class="offcanvas__contact d-xl-block">
+                            <h4 class="d-xl-block">Contact Info</h4>
+                            <ul class="d-xl-block">
+                                <li class="d-flex align-items-center">
+                                    <div class="offcanvas__contact-icon">
+                                        <i class="fal fa-map-marker-alt"></i>
+                                    </div>
+                                    <div class="offcanvas__contact-text">
+                                        <a target="_blank" href="#">Main Street, Melbourne, Australia</a>
+                                    </div>
+                                </li>
+                                <li class="d-flex align-items-center">
+                                    <div class="offcanvas__contact-icon mr-15">
+                                        <i class="fal fa-envelope"></i>
+                                    </div>
+                                    <div class="offcanvas__contact-text">
+                                        <a href="mailto:support@stackly.com"><span class="mailto:support@stackly.com">support@stackly.com</span></a>
+                                    </div>
+                                </li>
+                                <li class="d-flex align-items-center">
+                                    <div class="offcanvas__contact-icon mr-15">
+                                        <i class="fal fa-clock"></i>
+                                    </div>
+                                    <div class="offcanvas__contact-text">
+                                        <a target="_blank" href="#">Mod-friday, 09am -05pm</a>
+                                    </div>
+                                </li>
+                                <li class="d-flex align-items-center">
+                                    <div class="offcanvas__contact-icon mr-15">
+                                        <i class="far fa-phone"></i>
+                                    </div>
+                                    <div class="offcanvas__contact-text">
+                                        <a href="tel:+9170107927450">+91-70107927450</a>
+                                    </div>
+                                </li>
+                            </ul>
+                            <div class="social-icon d-flex align-items-center">
+                                <a href="#"><i class="fab fa-facebook-f"></i></a>
+                                <a href="#"><i class="fab fa-twitter"></i></a>
+                                <a href="#"><i class="fab fa-youtube"></i></a>
+                                <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="offcanvas__overlay"></div>
+
+                <!-- Header Section Start -->
+        <header id="header-sticky" class="stackly-site-header">
+            <div class="container-fluid">
+                <div class="stackly-header-inner">
+                    <a href="index.html" class="stackly-header-logo" aria-label="Stackly Real Estate home">
+                        <img src="assets/img/logo/black-logo.svg" alt="STACKLY">
+                    </a>
+                    <div class="stackly-header-navigation">
+                        <nav id="mobile-menu" aria-label="Main navigation">
+                            <ul>
+                            <li><a href="index.html">Home</a></li>
+                            <li><a href="about.html">About</a></li>
+                            <li class="active"><a href="services.html" aria-current="page">Services</a></li>
+                            <li><a href="project.html">Project</a></li>
+                            <li><a href="news.html">News</a></li>
+                            <li><a href="contact.html">Contact Us</a></li>
+                            </ul>
+                            <a href="login.html" class="stackly-login-register stackly-mobile-login-register">Login / Register</a>
+                        </nav>
+                    </div>
+                    <div class="stackly-header-actions">
+                        <a href="login.html" class="stackly-login-register">Login / Register</a>
+                        <button class="header__hamburger d-xl-none stackly-mobile-toggle" type="button" aria-label="Open navigation">
+                            <span class="sidebar__toggle"><i class="fas fa-bars"></i></span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </header>
+        <!-- Header Section End -->
+
+        <!-- start: Search Popup -->
+        <div class="search_popup">
+            <div class="container">
+            <div class="row">
+                <div class="col-xxl-12">
+                <div class="search_wrapper">
+                    <div class="search_top d-flex align-items-center">
+                    <div class="search_logo">
+                        <a href="index.html">
+                        <img src="assets/img/logo/white-logo.svg" alt="img">
+                        </a>
+                    </div>
+                    <div class="search_close">
+                        <button type="button" class="search_close_btn">
+                        <i class="fa-thin fa-times"></i>
+                        </button>
+                    </div>
+                    </div>
+                    <div class="search_form">
+                    <form action="#">
+                        <div class="search_input">
+                        <input class="search-input-field" type="text" placeholder="Type here to search...">
+                        <span class="search-focus-border"></span>
+                        <button type="submit">
+                            <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path
+                                d="M9.55 18.1C14.272 18.1 18.1 14.272 18.1 9.55C18.1 4.82797 14.272 1 9.55 1C4.82797 1 1 4.82797 1 9.55C1 14.272 4.82797 18.1 9.55 18.1Z"
+                                stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                            <path d="M19.0002 19.0002L17.2002 17.2002" stroke="currentColor" stroke-width="1.5"
+                                stroke-linecap="round" stroke-linejoin="round" />
+                            </svg>
+                        </button>
+                        </div>
+                    </form>
+                    </div>
+                </div>
+                </div>
+            </div>
+            </div>
+        </div>
+        <div class="search-popup-overlay"></div>
+
+        
+        <div id="smooth-wrapper">
+            <div id="smooth-content">
+
+                <!-- Breadcrumb Section Start -->
+                <div class="gt-breadcrumb-wrapper bg-cover" style="background-image: url('assets/img/breadcrumb.jpg');">
+                    <div class="container">
+                        <div class="gt-page-heading">
+                            <div class="gt-breadcrumb-sub-title">
+                                <h1 class="wow fadeInUp" data-wow-delay=".3s">Services</h1>
+                            </div>
+                            <ul class="gt-breadcrumb-items wow fadeInUp" data-wow-delay=".5s">
+                                <li>
+                                    <a href="index.html">
+                                        Home
+                                    </a>
+                                </li>
+                                <li>
+                                    <i class="fa-solid fa-chevron-right"></i>
+                                </li>
+                                <li>
+                                Services
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Service Section Start -->
+                <section class="service-section-3 fix section-padding">
+                    <div class="container">
+                        <div class="section-title d-none text-center">
+                            <span class="sub-title wow fadeInUp">O U R S E R V I C E S</span>
+                            <h2 class="gt-char-animation">
+                                What We Offer
+                            </h2>
+                        </div>
+                        <div class="row g-4">
+                            <div class="col-xl-4 col-lg-6 col-md-6 wow fadeInUp" data-wow-delay=".3s">
+                                <div class="service-box-items-2 style-2 mt-0">
+                                    <div class="icon">
+                                        <i class="flaticon-real-estate"></i>
+                                    </div>
+                                    <div class="content">
+                                        <h3><a href="service-details.html">Property Sales & Leasing</a></h3>
+                                        <p>Buy, sell, or lease premium commercial apartment units with ease.</p>
+                                        <a href="service-details.html" class="link-btn">
+                                            <i class="flaticon-home"></i> read more
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-xl-4 col-lg-6 col-md-6 wow fadeInUp" data-wow-delay=".5s">
+                                <div class="service-box-items-2 style-2 mt-0">
+                                    <div class="icon">
+                                    <i class="flaticon-playground"></i>
+                                    </div>
+                                    <div class="content">
+                                        <h3><a href="service-details.html">Virtual Tours & Site Visits</a></h3>
+                                        <p>Buy, sell, or lease premium commercial apartment units with ease.</p>
+                                        <a href="service-details.html" class="link-btn">
+                                            <i class="flaticon-home"></i> read more
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-xl-4 col-lg-6 col-md-6 wow fadeInUp" data-wow-delay=".7s">
+                                <div class="service-box-items-2 style-2 mt-0">
+                                    <div class="icon">
+                                    <i class="flaticon-store"></i>
+                                    </div>
+                                    <div class="content">
+                                        <h3><a href="service-details.html">Investment Consultation</a></h3>
+                                        <p>Buy, sell, or lease premium commercial apartment units with ease.</p>
+                                        <a href="service-details.html" class="link-btn">
+                                            <i class="flaticon-home"></i> read more
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-xl-4 col-lg-6 col-md-6 wow fadeInUp" data-wow-delay=".3s">
+                                <div class="service-box-items-2 style-2 mt-0">
+                                    <div class="icon">
+                                        <i class="flaticon-appraisal"></i>
+                                    </div>
+                                    <div class="content">
+                                        <h3><a href="service-details.html">Property Sales & Leasing</a></h3>
+                                        <p>Buy, sell, or lease premium commercial apartment units with ease.</p>
+                                        <a href="service-details.html" class="link-btn">
+                                            <i class="flaticon-home"></i> read more
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-xl-4 col-lg-6 col-md-6 wow fadeInUp" data-wow-delay=".5s">
+                                <div class="service-box-items-2 style-2 mt-0">
+                                    <div class="icon">
+                                    <i class="flaticon-virtual-tour"></i>
+                                    </div>
+                                    <div class="content">
+                                        <h3><a href="service-details.html">Virtual Tours & Site Visits</a></h3>
+                                        <p>Buy, sell, or lease premium commercial apartment units with ease.</p>
+                                        <a href="service-details.html" class="link-btn">
+                                            <i class="flaticon-home"></i> read more
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-xl-4 col-lg-6 col-md-6 wow fadeInUp" data-wow-delay=".7s">
+                                <div class="service-box-items-2 style-2 mt-0">
+                                    <div class="icon">
+                                   <i class="flaticon-financial-advisor"></i>
+                                    </div>
+                                    <div class="content">
+                                        <h3><a href="service-details.html">Investment Consultation</a></h3>
+                                        <p>Buy, sell, or lease premium commercial apartment units with ease.</p>
+                                        <a href="service-details.html" class="link-btn">
+                                            <i class="flaticon-home"></i> read more
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Cta Check Section Start -->
+                <section class="cta-check-section bg-white-style fix section-bg section-padding pb-0">
+                    <div class="cta-shape">
+                        <img src="assets/img/home-2/cta-shape.png" alt="img">
+                    </div>
+                    <div class="container">
+                        <div class="cta-check-wrapper">
+                            <div class="check-abode-items">
+                                <div class="left-items">
+                                    <div class="section-title mb-0">
+                                        <h2 class="gt-char-animation">
+                                            Check Out Our <br> Contemporary Abode.
+                                        </h2>
+                                        <p class="mt-3 wow fadeInUp" data-wow-delay=".5s">
+                                            Explore a thoughtfully designed modern living space that blends sleek architecture with smart amenities. Perfect for those who seek style, comfort, and convenience—all in one beautiful, move-in-ready home.
+                                        </p>
+                                    </div>
+                                </div>
+                                <div class="right-items">
+                                    <div class="client-info-box wow fadeInUp" data-wow-delay=".3s">
+                                        <div class="client-item">
+                                            <div class="thumb">
+                                                <img src="assets/img/home-2/client-01.jpg" alt="img">
+                                            </div>
+                                            <div class="content">
+                                                <h3>Sohel Tanvir</h3>
+                                                <span>CEO of Realar</span>
+                                            </div>
+                                        </div>
+                                        <img src="assets/img/home-2/sing.png" alt="img">
+                                    </div>
+                                    <a href="contact.html" class="theme-btn wow fadeInUp" data-wow-delay=".5s">
+                                        REQUEST A VISIT <i class="flaticon-home"></i> 
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="cta-image-items bg-cover" style="background-image: url('assets/img/home-2/cta-image.jpg');">
+                                <span class="text-line">
+                                    CONSULTING
+                                </span>
+                                <div class="cta-content">
+                                    <h2 class="wow fadeInUp" data-wow-delay=".3s">We Make Buying and Selling Easy</h2>
+                                    <p class="wow fadeInUp" data-wow-delay=".5s">
+                                        We simplify every step of your real estate journey. From finding the perfect home to finalizing the deal, our expert team ensures a smooth, stress-free experience for buyers and sellers alike.
+                                    </p>
+                                    <a href="contact.html" class="theme-btn wow fadeInUp" data-wow-delay=".7s">
+                                    GET STARTED 
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                 <!-- Testimonial Section Start -->
+                <section class="testimonial-section-2 fix section-padding">
+                    <div class="left-shape">
+                        <img src="assets/img/home-2/testimonial/left-shape.png" alt="img">
+                    </div>
+                    <div class="container">
+                        <div class="testimonial-wrapper-2">
+                            <div class="row g-4 align-items-center">
+                                <div class="col-lg-6">
+                                    <div class="testimonial-left-content">
+                                        <div class="section-title mb-0">
+                                            <span class="sub-title wow fadeInUp">Testimonial</span>
+                                            <h2 class="gt-char-animation">
+                                                What Our Residents <br> Say
+                                            </h2>
+                                        </div>
+                                        <p class="testi-text wow fadeInUp" data-wow-delay=".5s">
+                                            Discover why our residents love calling us home—from breathtaking views and luxury finishes to unmatched service and community living, their stories reflect
+                                        </p>
+                                        <a href="contact.html" class="theme-btn wow fadeInUp" data-wow-delay=".7s">
+                                            VIEW ALL REVIEW
+                                        </a>
+                                    </div>
+                                </div>
+                                <div class="col-lg-6">
+                                    <div class="testimonial-right-items bg-cover" style="background-image: url('assets/img/home-2/testimonial/map-shape.png');">
+                                        <div class="swiper testi-box-slider">
+                                            <div class="swiper-wrapper">
+                                                <div class="swiper-slide">
+                                                    <div class="testimonial-box-2">
+                                                        <div class="star">
+                                                        <i class="fa-solid fa-star"></i>
+                                                        <i class="fa-solid fa-star"></i>
+                                                        <i class="fa-solid fa-star"></i>
+                                                        <i class="fa-solid fa-star"></i>
+                                                        <i class="fa-solid fa-star"></i>
+                                                        </div>
+                                                        <p>
+                                                            From the moment we arrived, every detail was flawless. The staff anticipated our every need, and the suite was pure perfection. We’ll be back soon!"
+                                                        </p>
+                                                        <div class="client-info">
+                                                            <h3>Marvin McKinney</h3>
+                                                            <span>Product Manager</span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="swiper-slide">
+                                                    <div class="testimonial-box-2">
+                                                        <div class="star">
+                                                        <i class="fa-solid fa-star"></i>
+                                                        <i class="fa-solid fa-star"></i>
+                                                        <i class="fa-solid fa-star"></i>
+                                                        <i class="fa-solid fa-star"></i>
+                                                        <i class="fa-solid fa-star"></i>
+                                                        </div>
+                                                        <p>
+                                                            From the moment we arrived, every detail was flawless. The staff anticipated our every need, and the suite was pure perfection. We’ll be back soon!"
+                                                        </p>
+                                                        <div class="client-info">
+                                                            <h3>Marvin McKinney</h3>
+                                                            <span>Product Manager</span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="swiper-slide">
+                                                    <div class="testimonial-box-2">
+                                                        <div class="star">
+                                                        <i class="fa-solid fa-star"></i>
+                                                        <i class="fa-solid fa-star"></i>
+                                                        <i class="fa-solid fa-star"></i>
+                                                        <i class="fa-solid fa-star"></i>
+                                                        <i class="fa-solid fa-star"></i>
+                                                        </div>
+                                                        <p>
+                                                            From the moment we arrived, every detail was flawless. The staff anticipated our every need, and the suite was pure perfection. We’ll be back soon!"
+                                                        </p>
+                                                        <div class="client-info">
+                                                            <h3>Marvin McKinney</h3>
+                                                            <span>Product Manager</span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="swiper-slide">
+                                                    <div class="testimonial-box-2">
+                                                        <div class="star">
+                                                        <i class="fa-solid fa-star"></i>
+                                                        <i class="fa-solid fa-star"></i>
+                                                        <i class="fa-solid fa-star"></i>
+                                                        <i class="fa-solid fa-star"></i>
+                                                        <i class="fa-solid fa-star"></i>
+                                                        </div>
+                                                        <p>
+                                                            From the moment we arrived, every detail was flawless. The staff anticipated our every need, and the suite was pure perfection. We’ll be back soon!"
+                                                        </p>
+                                                        <div class="client-info">
+                                                            <h3>Marvin McKinney</h3>
+                                                            <span>Product Manager</span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="client-info-image">
+                                            <div class="swiper testi-image-slider">
+                                                <div class="swiper-wrapper">
+                                                    <div class="swiper-slide">
+                                                        <div class="client-image">
+                                                            <img src="assets/img/home-2/testimonial/client-01.png" alt="img">
+                                                        </div>
+                                                    </div>
+                                                    <div class="swiper-slide">
+                                                        <div class="client-image">
+                                                            <img src="assets/img/home-2/testimonial/client-02.png" alt="img">
+                                                        </div>
+                                                    </div>
+                                                    <div class="swiper-slide">
+                                                        <div class="client-image">
+                                                            <img src="assets/img/home-2/testimonial/client-03.png" alt="img">
+                                                        </div>
+                                                    </div>
+                                                    <div class="swiper-slide">
+                                                        <div class="client-image">
+                                                            <img src="assets/img/home-2/testimonial/client-04.png" alt="img">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Contact Section Start -->
+                
+               
+                 <!-- Footer Section Start -->
+                <footer class="stackly-realestate-footer">
+    <div class="container">
+        <div class="stackly-footer-main">
+            <div class="row g-4">
+                <div class="col-xl-4 col-lg-4 col-md-6">
+                    <div class="stackly-footer-brand">
+                        <a class="stackly-footer-logo" href="index.html" aria-label="Stackly Home">
+                            <img src="assets/img/logo/white-logo.svg" alt="STACKLY">
+                        </a>
+                        <p>Discover thoughtfully designed homes and premium properties with Stackly. We help you find the right space, in the right place, for the way you want to live.</p>
+                        <div class="stackly-footer-social" aria-label="Social media links">
+                            <a href="#" aria-label="Email"><i class="fas fa-envelope"></i></a>
+                            <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                            <a href="#" aria-label="X"><svg class="stackly-x-brand-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path fill="currentColor" d="M18.9 2H22l-6.8 7.8L23.2 22h-6.3l-4.9-7.5L5.5 22H2.3l7.3-8.4L1.8 2h6.4l4.4 6.9L18.9 2zm-1.1 18h1.7L7.3 3.9H5.5L17.8 20z"/></svg></a>
+                            <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                            <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xl-2 col-lg-2 col-md-6 col-6">
+                    <div class="stackly-footer-column">
+                        <h3>Quick Links</h3>
+                        <span class="stackly-footer-heading-line"></span>
+                        <ul>
+                            <li><a href="about.html">About</a></li>
+                            <li><a href="services.html">Services</a></li>
+                            <li><a href="project.html">Project</a></li>
+                            <li><a href="news.html">News</a></li>
+                            <li><a href="contact.html">Contact Us</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-xl-3 col-lg-3 col-md-6 col-6">
+                    <div class="stackly-footer-column">
+                        <h3>Our Properties</h3>
+                        <span class="stackly-footer-heading-line"></span>
+                        <ul>
+                            <li><a href="propertie-details.html">Skyline Heights Villa</a></li>
+                            <li><a href="propertie-details.html">Sunset View Apartments</a></li>
+                            <li><a href="propertie-details.html">Central Park Towers</a></li>
+                            <li><a href="propertie-details.html">Royal Palace</a></li>
+                            <li><a href="propertie-details.html">Golden Pearl</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-xl-3 col-lg-3 col-md-6">
+                    <div class="stackly-footer-contact-card stackly-footer-subscribe">
+                        <h3>Stay Connected</h3>
+                        <span class="stackly-footer-heading-line"></span>
+                        <p>Get the latest property listings, real estate insights and home-buying updates delivered to your inbox.</p>
+                        <form class="stackly-footer-subscribe-form" action="404.html" method="get">
+                            <label class="visually-hidden" for="stackly-footer-email">Email address</label>
+                            <input id="stackly-footer-email" type="email" name="email" placeholder="Email ID" required>
+                            <button type="submit">Subscribe</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="stackly-footer-contact-strip">
+            <div class="stackly-footer-contact-item">
+                <span class="stackly-footer-contact-icon"><i class="fas fa-map-marker-alt"></i></span>
+                <span>MMR Complex, Salem, TN, India</span>
+            </div>
+            <div class="stackly-footer-contact-item">
+                <span class="stackly-footer-contact-icon"><i class="fas fa-envelope"></i></span>
+                <a href="mailto:support@stackly.com">support@stackly.com</a>
+            </div>
+            <div class="stackly-footer-contact-item">
+                <span class="stackly-footer-contact-icon"><i class="fas fa-phone-alt"></i></span>
+                <a href="tel:+9170107927450">+91-70107927450</a>
+            </div>
+        </div>
+        <div class="stackly-footer-bottom">
+            <p>© 2026 STACKLY. All Rights Reserved.</p>
+            <div class="stackly-footer-legal">
+                <a href="404.html">Privacy Policy</a>
+                <a href="404.html">Terms &amp; Conditions</a>
+            </div>
+        </div>
+    </div>
+</footer>
+            </div>
+        </div>
+
+       
+
+        
+        <!--<< All JS Plugins >>-->
+        <script src="assets/js/jquery-3.7.1.min.js"></script>
+        <!--<< Viewport Js >>-->
+        <script src="assets/js/viewport.jquery.js"></script>
+        <!--<< Bootstrap Js >>-->
+        <script src="assets/js/bootstrap.bundle.min.js"></script>
+        <!--<< Gsap Min Js >>-->
+        <script src="assets/js/gsap.min.js"></script>
+        <!--<< ScrollTrigger Min Js >>-->
+        <script src="assets/js/ScrollTrigger.min.js"></script>
+        <!--<< ScrollSmoother Min Js >>-->
+        <script src="assets/js/ScrollSmoother.min.js"></script>
+        <!--<< ScrollToPlugin Min Js >>-->
+        <script src="assets/js/ScrollToPlugin.min.js"></script>
+        <!--<< SplitText Min Js >>-->
+        <script src="assets/js/SplitText.min.js"></script>
+        <!--<< TextPlugin Min Js >>-->
+        <script src="assets/js/TextPlugin.js"></script>
+         <!--<< Chroma Min Js >>-->
+        <script src="assets/js/chroma.min.js"></script>
+        <!--<< nice-selec Js >>-->
+        <script src="assets/js/jquery.nice-select.min.js"></script>
+        <!--<< Waypoints Js >>-->
+        <script src="assets/js/jquery.waypoints.js"></script>
+        <!--<< Counterup Js >>-->
+        <script src="assets/js/jquery.counterup.min.js"></script>
+        <!--<< Swiper Slider Js >>-->
+        <script src="assets/js/swiper-bundle.min.js"></script>
+        <!--<< MeanMenu Js >>-->
+        <script src="assets/js/jquery.meanmenu.min.js"></script>
+        <!--<< Parallaxie Js >>-->
+        <script src="assets/js/parallaxie.js"></script>
+        <!--<< Magnific Popup Js >>-->
+        <script src="assets/js/jquery.magnific-popup.min.js"></script>
+        <!--<< Wow Animation Js >>-->
+        <script src="assets/js/wow.min.js"></script>
+         <!--<< imagesloaded pkgd Js >>-->
+         <script src="assets/js/imagesloaded-pkgd.js"></script>
+        <!--<< three Js >>-->
+        <script src="assets/js/three.js"></script>
+        <!--<< hover-effect.js >>-->
+        <script src="assets/js/hover-effect.umd.js"></script>
+         <!--<< distortion-img.js >>-->
+        <script type="module" src="assets/js/distortion-img.js"></script>
+        <!--<< distortion-effect.js >>-->
+         <script type="module" src="assets/js/distortion-effect.js"></script>
+         <script src="assets/js/throwable.js"></script>
+         <script src="assets/js/matter.js"></script>
+        <!--<< Main.js >>-->
+        <script src="assets/js/main.js"></script>
+    
+
+<script>
+/* Stackly: route every interactive item in the page content to 404.html.
+   Header, footer and header/offcanvas controls remain untouched. */
+(function () {
+    function isHeaderOrFooter(el) {
+        return !!(el && el.closest && el.closest('header, footer, .offcanvas__area, .offcanvas__overlay'));
+    }
+    document.addEventListener('click', function (event) {
+        if (event.defaultPrevented || event.button !== 0 || event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) return;
+        var target = event.target && event.target.nodeType === 1 ? event.target : event.target.parentElement;
+        if (!target) return;
+
+        // Back-to-top is a functional utility control, not a content link.
+        // Handle it before the global 404 click router (which runs in capture phase).
+        var backTop = target.closest('#back-top');
+        if (backTop) {
+            event.preventDefault();
+            event.stopImmediatePropagation();
+            var smoother = null;
+            try {
+                smoother = window.ScrollSmoother && window.ScrollSmoother.get();
+            } catch (error) {
+                smoother = null;
+            }
+            if (smoother && typeof smoother.scrollTo === 'function') {
+                smoother.scrollTo(0, true);
+            } else {
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            }
+            return;
+        }
+
+        if (isHeaderOrFooter(target)) return;
+        var control = target.closest('a, button, input[type="button"], input[type="submit"], input[type="image"], [role="button"], [onclick], [tabindex]:not([tabindex="-1"]), .array-prev, .array-next, .plus-btn, .checkbox-single, .hero-image');
+        if (!control || isHeaderOrFooter(control)) return;
+        if (control.disabled || control.getAttribute('aria-disabled') === 'true') return;
+        event.preventDefault();
+        event.stopPropagation();
+        window.location.href = '404.html';
+    }, true);
+
+    document.addEventListener('submit', function (event) {
+        var form = event.target;
+        if (!form || isHeaderOrFooter(form)) return;
+        if (typeof form.reportValidity === 'function' && !form.reportValidity()) {
+            event.preventDefault();
+            return;
+        }
+        event.preventDefault();
+        window.location.href = '404.html';
+    }, true);
+})();
+</script>
+
+
+
+<script>
+/* STACKLY form cleanup:
+   Keep valid submissions flowing to 404.html, then clear only the submitted
+   form when the visitor returns with Back to Previous Page. */
+(function () {
+    var footerSelector = '.stackly-footer-subscribe-form';
+    var contactSelector = 'form[action="contact.php"]';
+    var resetKey = 'stackly_404_return_form';
+
+    function isTargetForm(form) {
+        return form && (form.matches(footerSelector) ||
+            (location.pathname.toLowerCase().endsWith('/contact.html') && form.matches(contactSelector)));
+    }
+
+    document.addEventListener('submit', function (event) {
+        var form = event.target;
+        if (!isTargetForm(form)) return;
+
+        // The browser dispatches submit only after native required/type checks pass.
+        try {
+            sessionStorage.setItem(resetKey, form.matches(footerSelector) ? 'footer' : 'contact');
+        } catch (e) {}
+
+        // Footer form normally performs a GET with the email in the URL.
+        // Keep the same successful 404 flow without exposing the email in the query string.
+        if (form.matches(footerSelector)) {
+            event.preventDefault();
+            window.location.href = '404.html';
+        }
+        // The contact page's existing submit router handles its 404 redirect.
+    }, true);
+
+    window.addEventListener('pageshow', function () {
+        var submittedForm = null;
+        try {
+            submittedForm = sessionStorage.getItem(resetKey);
+            if (submittedForm) sessionStorage.removeItem(resetKey);
+        } catch (e) {}
+
+        if (!submittedForm) return;
+
+        var form = submittedForm === 'footer'
+            ? document.querySelector(footerSelector)
+            : document.querySelector(contactSelector);
+
+        if (!form) return;
+        form.reset();
+
+        // Synchronize the styled select widget after native form reset.
+        form.querySelectorAll('select').forEach(function (select) {
+            select.selectedIndex = 0;
+            select.dispatchEvent(new Event('change', { bubbles: true }));
+        });
+        form.querySelectorAll('input, textarea').forEach(function (field) {
+            if (field.type !== 'hidden' && field.type !== 'submit' && field.type !== 'button') {
+                field.value = '';
+            }
+        });
+    });
+})();
+</script>
+
+
+<script>
+/* STACKLY main-page mobile navigation: stable hamburger/X toggle. */
+(function () {
+  var header = document.querySelector('.stackly-site-header');
+  if (!header) return;
+  var toggle = header.querySelector('.stackly-mobile-toggle');
+  var icon = toggle ? toggle.querySelector('i') : null;
+  var body = document.body;
+  var nav = header.querySelector('.stackly-header-navigation');
+  if (!toggle || !nav) return;
+
+  function setOpen(open) {
+    header.classList.toggle('mobile-menu-open', open);
+    body.classList.toggle('mobile-menu-lock', open);
+    toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+    toggle.setAttribute('aria-label', open ? 'Close navigation' : 'Open navigation');
+    if (icon) {
+      icon.classList.toggle('fa-bars', !open);
+      icon.classList.toggle('fa-times', open);
+    }
+  }
+
+  toggle.addEventListener('click', function (event) {
+    event.preventDefault();
+    event.stopImmediatePropagation();
+    setOpen(!header.classList.contains('mobile-menu-open'));
+  }, true);
+
+  nav.addEventListener('click', function (event) {
+    var link = event.target && event.target.closest ? event.target.closest('a') : null;
+    if (link) setOpen(false);
+  });
+
+  document.addEventListener('keydown', function (event) {
+    if (event.key === 'Escape' && header.classList.contains('mobile-menu-open')) {
+      setOpen(false);
+      toggle.focus();
+    }
+  });
+
+  window.addEventListener('resize', function () {
+    if (window.innerWidth > 991) setOpen(false);
+  }, { passive: true });
+
+  setOpen(false);
+})();
+</script>
+
+</body>
+</html>

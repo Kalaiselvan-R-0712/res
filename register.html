@@ -1,0 +1,1656 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Stackly Real Estate — secure access to property listings, saved homes and enquiries.">
+<meta name="theme-color" content="#16243E">
+<title>Register | Stackly Real Estate</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+
+<style>
+:root{
+  --ink:#030811;
+  --night:#061120;
+  --panel:#0a1728;
+  --panel2:#0e2036;
+  --blue:#087fc3;
+  --cyan:#16c8f2;
+  --sky:#7be7ff;
+  --green:#62ef70;
+  --gold:#f5b83d;
+  --gold2:#ffd66e;
+  --white:#f5f9ff;
+  --soft:#c2d0df;
+  --muted:#8194aa;
+  --line:rgba(137,204,255,.14);
+  --shadow:0 30px 90px rgba(0,0,0,.42);
+}
+
+*{box-sizing:border-box;margin:0;padding:0}
+html{width:100%;min-height:100%;background:var(--ink);overflow-y:scroll;scroll-behavior:smooth}
+body{
+  min-height:100vh;width:100%;
+  background:var(--ink);color:var(--white);
+  font-family:"DM Sans",Arial,sans-serif;overflow-x:hidden;overflow-y:scroll;
+  line-height:1.6;
+}
+a{text-decoration:none;color:inherit}
+button,input{font:inherit}
+img{display:block;max-width:100%}
+
+/* ===== STACKLY FINANCE & ACCOUNTING — PREMIUM FINANCE PRELOADER ===== */
+/* Reference: index.html — keep the browser/default side scrollbar visible during loading. */
+#preloader{
+  position:fixed;inset:0;z-index:10000;display:grid;place-items:center;overflow:hidden;
+  background:
+    radial-gradient(circle at 50% 42%,rgba(22,200,242,.16),transparent 18%),
+    radial-gradient(circle at 18% 78%,rgba(98,239,112,.10),transparent 25%),
+    radial-gradient(circle at 84% 20%,rgba(245,184,61,.08),transparent 24%),
+    linear-gradient(145deg,#010608 0%,#04161a 55%,#02090b 100%);
+  transition:opacity .75s ease,visibility .75s ease;
+}
+#preloader:before,#preloader:after{content:"";position:absolute;border-radius:50%;pointer-events:none}
+#preloader:before{
+  width:min(720px,110vw);height:min(720px,110vw);
+  border:1px solid rgba(22,200,242,.08);
+  box-shadow:0 0 140px rgba(22,200,242,.05),inset 0 0 100px rgba(22,200,242,.025);
+  animation:financeOrbit 15s linear infinite;
+}
+#preloader:after{
+  width:430px;height:430px;border:1px dashed rgba(245,184,61,.11);
+  animation:financeOrbitReverse 10s linear infinite;
+}
+.finance-loader-grid{
+  position:absolute;inset:0;opacity:.15;pointer-events:none;
+  background-image:linear-gradient(rgba(255,255,255,.04) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.04) 1px,transparent 1px);
+  background-size:46px 46px;
+  mask-image:linear-gradient(to bottom,black,transparent 88%);
+}
+.finance-orbit{position:absolute;border:1px solid rgba(22,200,242,.12);border-radius:50%;transform:rotateX(66deg)}
+.finance-orbit-one{width:390px;height:150px;animation:financeOrbit 4.8s linear infinite}
+.finance-orbit-two{width:310px;height:120px;border-color:rgba(98,239,112,.13);transform:rotateX(66deg) rotateZ(55deg);animation:financeOrbitReverse 5.7s linear infinite}
+.finance-orbit-three{width:500px;height:190px;border-color:rgba(245,184,61,.08);transform:rotateX(66deg) rotateZ(-45deg);animation:financeOrbit 7s linear infinite}
+.finance-loader-core{
+  position:relative;width:270px;height:166px;display:grid;place-items:center;z-index:2;
+  border-radius:83px;
+  background:radial-gradient(ellipse at center,#0b2b30,#031114 68%,#010708);
+  border:1px solid rgba(22,200,242,.32);
+  box-shadow:0 0 70px rgba(22,200,242,.14),inset 0 0 42px rgba(22,200,242,.08);
+  animation:financeCore 2.5s ease-in-out infinite;
+  margin-top:-28px;
+}
+.finance-logo-ring{
+  position:absolute;inset:7px;border-radius:50%;
+  border:2px solid transparent;border-top-color:#16c8f2;border-right-color:#62ef70;
+  animation:spinFinance 1.15s linear infinite;
+}
+.finance-logo-shell{
+  width:236px;height:100px;border-radius:20px;overflow:visible;display:grid;place-items:center;
+  background:rgba(0,0,0,.22);border:1px solid rgba(255,255,255,.10);
+  box-shadow:inset 0 0 28px rgba(0,0,0,.65);padding:8px 12px;
+}
+.finance-logo-shell img{
+  width:214px;max-width:100%;height:auto;object-fit:contain;
+  filter:drop-shadow(0 0 12px rgba(22,200,242,.3));
+  animation:financeLogoPulse 2.2s ease-in-out infinite;
+}
+.finance-spark{position:absolute;width:5px;height:5px;border-radius:50%;background:#16c8f2;box-shadow:0 0 12px #16c8f2}
+.spark-1{top:-13px;left:50%;animation:sparkFloat 1.8s infinite}
+.spark-2{right:-10px;top:50%;background:#62ef70;box-shadow:0 0 12px #62ef70;animation:sparkFloat 1.8s .45s infinite}
+.spark-3{bottom:-10px;left:50%;background:#f5b83d;box-shadow:0 0 12px #f5b83d;animation:sparkFloat 1.8s .9s infinite}
+.spark-4{left:-10px;top:50%;animation:sparkFloat 1.8s 1.35s infinite}
+.impact-chart{
+  position:absolute;right:calc(50% - 250px);top:calc(50% - 125px);margin-top:-28px;
+  width:105px;height:72px;display:flex;align-items:flex-end;gap:5px;
+  transform:skewY(-5deg);z-index:3;animation:chartFloat 2s ease-in-out infinite;
+}
+.impact-chart span{
+  flex:1;border-radius:4px 4px 0 0;background:linear-gradient(180deg,#62ef70,#16c8f2);
+  box-shadow:0 0 10px rgba(22,200,242,.22);transform-origin:bottom;
+  animation:chartBars 1.4s ease-in-out infinite alternate;
+}
+.impact-chart span:nth-child(2){animation-delay:.12s}.impact-chart span:nth-child(3){animation-delay:.24s}
+.impact-chart span:nth-child(4){animation-delay:.36s}.impact-chart span:nth-child(5){animation-delay:.48s}
+.impact-chart b{
+  position:absolute;left:5px;bottom:7px;width:95px;height:2px;
+  background:linear-gradient(90deg,transparent,#16c8f2,#62ef70);
+  transform:rotate(-27deg);transform-origin:right center;box-shadow:0 0 10px rgba(22,200,242,.6);
+}
+.impact-heart{
+  position:absolute;left:calc(50% - 245px);top:calc(50% + 45px);margin-top:-28px;
+  width:48px;height:48px;border-radius:50%;display:grid;place-items:center;
+  color:#061012;font:900 24px "Space Grotesk";
+  background:linear-gradient(145deg,#ffeaa2,#d7a72d);
+  border:2px solid #fff1af;box-shadow:0 0 24px rgba(245,184,61,.22);
+  animation:coinFinance 2.3s ease-in-out infinite;z-index:3;
+}
+.finance-loader-copy{
+  position:absolute;top:calc(50% + 125px);left:0;right:0;margin-top:-28px;
+  display:flex;flex-direction:column;align-items:center;text-align:center;z-index:3;
+}
+.finance-loader-copy strong{
+  font:900 27px "Space Grotesk";letter-spacing:7px;
+  background:linear-gradient(90deg,#fff,#16c8f2,#62ef70,#fff);
+  background-size:220% auto;-webkit-background-clip:text;background-clip:text;color:transparent;
+  animation:brandShine 2.3s linear infinite;
+}
+.finance-loader-copy span{margin-top:6px;color:#b9ced0;font:700 10px "Space Grotesk";letter-spacing:3px}
+.finance-loader-copy span i{color:#62ef70;font-style:normal;margin:0 3px}
+.finance-loader-copy small{margin-top:10px;color:#667f83;font:700 8px "Space Grotesk";letter-spacing:1.7px;text-transform:uppercase}
+.finance-progress{
+  position:absolute;bottom:39px;width:min(330px,68vw);height:3px;
+  background:rgba(255,255,255,.07);border-radius:99px;overflow:hidden;z-index:3;
+}
+.finance-progress span{
+  display:block;width:0;height:100%;background:linear-gradient(90deg,#087fc3,#16c8f2,#62ef70);
+  box-shadow:0 0 13px rgba(22,200,242,.7);transition:width .12s linear;
+}
+.finance-percent{position:absolute;bottom:20px;color:#5d777a;font:700 8px "Space Grotesk";letter-spacing:2px;z-index:3}
+@keyframes spinFinance{to{transform:rotate(360deg)}}
+@keyframes financeOrbit{to{transform:rotate(360deg)}}
+@keyframes financeOrbitReverse{to{transform:rotate(-360deg)}}
+@keyframes financeCore{50%{transform:translateY(-6px) scale(1.025)}}
+@keyframes financeLogoPulse{50%{transform:scale(1.035);filter:drop-shadow(0 0 18px rgba(22,200,242,.45))}}
+@keyframes sparkFloat{50%{transform:scale(1.7);opacity:.5}}
+@keyframes chartFloat{50%{transform:skewY(-5deg) translate(4px,-7px)}}
+@keyframes chartBars{to{transform:scaleY(.72)}}
+@keyframes coinFinance{50%{transform:translateY(-8px) rotate(-7deg)}}
+@keyframes brandShine{to{background-position:220% center}}
+body.loading{overflow-x:hidden;overflow-y:scroll}
+
+@media(max-width:700px){
+  .finance-loader-core{width:min(286px,88vw);height:148px;border-radius:74px;margin-top:-18px}
+  .finance-logo-ring{inset:6px}
+  .finance-logo-shell{width:min(246px,78vw);height:92px;border-radius:18px;padding:7px 10px}
+  .finance-logo-shell img{width:min(222px,70vw);max-width:100%}
+  .impact-chart{right:calc(50% - 210px);top:calc(50% - 110px);width:78px;height:58px;margin-top:-18px}
+  .impact-heart{left:calc(50% - 205px);top:calc(50% + 45px);width:42px;height:42px;font-size:20px;margin-top:-18px}
+  .finance-loader-copy{top:calc(50% + 116px);margin-top:-18px}
+  .finance-loader-copy strong{font-size:22px;letter-spacing:5px}
+  .finance-loader-copy span{font-size:8px;letter-spacing:2px}
+  .finance-loader-copy small{font-size:7px;letter-spacing:1.1px}
+}
+@media(prefers-reduced-motion:reduce){#preloader *{animation:none!important}}
+
+/* =========================================================
+   REGISTER LAYOUT
+   ========================================================= */
+.register-shell{
+  width:100%;min-height:100vh;display:grid;grid-template-columns:50% 50%;background:var(--ink);
+}
+.form-side{
+  min-height:100vh;display:flex;align-items:center;justify-content:center;
+  padding:56px 7vw;background:linear-gradient(180deg,#06101c 0%,#02060d 100%);
+  position:relative;overflow:hidden;grid-column:1;grid-row:1;
+}
+.form-side:before{
+  content:"";position:absolute;width:560px;height:560px;right:-290px;top:-210px;
+  background:radial-gradient(circle,rgba(22,200,242,.12),transparent 68%);pointer-events:none;
+}
+.form-side:after{
+  content:"";position:absolute;width:520px;height:520px;left:-300px;bottom:-280px;
+  background:radial-gradient(circle,rgba(245,184,61,.075),transparent 68%);pointer-events:none;
+}
+.form-wrap{width:min(100%,650px);position:relative;z-index:2}
+.back-home{display:inline-flex;align-items:center;gap:10px;color:#8da3b7;font-size:13px;font-weight:700;margin-bottom:26px}
+.back-home i{color:var(--cyan);font-size:13px}
+.form-heading{margin-bottom:25px}
+.form-heading .eyebrow{
+  color:#61e5c6;font-size:9px;font-weight:800;letter-spacing:2.5px;text-transform:uppercase;margin-bottom:10px;
+}
+.form-heading h1{
+  font-family:"Space Grotesk",sans-serif;font-size:clamp(42px,4.2vw,64px);line-height:1;letter-spacing:-3px;margin-bottom:13px;
+}
+.form-heading h1 span{color:var(--gold2)}
+.form-heading p{color:#8197ab;font-size:13px;max-width:600px;line-height:1.75}
+.form-status{
+  display:none;margin-bottom:14px;padding:10px 12px;border:1px solid rgba(22,200,242,.24);
+  border-radius:12px;color:#a7c8dc;background:rgba(22,200,242,.055);text-align:center;font-size:11px;
+}
+.form-status.show{display:block}
+.form-group{margin-bottom:17px}
+.form-group label{
+  display:block;margin-bottom:8px;color:#dce8f2;font-size:10px;font-weight:800;letter-spacing:1.4px;text-transform:uppercase;
+}
+.input-wrap{position:relative}
+.input-wrap>i{
+  position:absolute;left:18px;top:50%;transform:translateY(-50%);color:#62788c;font-size:13px;pointer-events:none;transition:.25s ease;
+}
+.input-wrap input{
+  width:100%;height:56px;padding:0 47px;border:1px solid rgba(137,204,255,.14);border-radius:14px;
+  outline:none;color:#f7fbff;background:rgba(7,17,31,.72);transition:border-color .25s ease,box-shadow .25s ease,background .25s ease;
+}
+.input-wrap input::placeholder{color:#536a7f}
+.input-wrap input:focus{
+  border-color:var(--cyan);box-shadow:0 0 0 3px rgba(22,200,242,.08),0 0 30px rgba(22,200,242,.06);background:#071321;
+}
+.input-wrap:focus-within>i{color:var(--cyan)}
+.password-toggle{
+  position:absolute;right:9px;top:50%;transform:translateY(-50%);
+  width:38px;height:38px;border:0;border-radius:50%;color:#71869a;background:transparent;cursor:pointer;
+}
+.error{display:none;margin-top:6px;color:#ff9d9d;font-size:10px;font-weight:600}
+.error.show{display:block}
+
+/* Logistics role selector */
+.role-select{
+  display:grid;grid-template-columns:1fr 1fr;gap:5px;width:100%;padding:5px;
+  border:1px solid rgba(137,204,255,.14);border-radius:100px;background:rgba(7,17,31,.9);
+}
+.role-option{
+  min-height:54px;border:0;border-radius:100px;background:transparent;color:#7890a8;
+  display:flex;align-items:center;justify-content:center;gap:10px;padding:0 12px;
+  font-size:11px;font-weight:800;letter-spacing:.7px;cursor:pointer;
+}
+.role-option i{font-size:12px}
+.role-option.selected{
+  color:#061012;background:linear-gradient(100deg,#16c8f2,#087fc3 58%,#62ef70);
+  box-shadow:0 10px 30px rgba(22,200,242,.18);
+}
+.terms{
+  display:flex;align-items:flex-start;gap:8px;margin:4px 0 19px;color:#70869a;font-size:10px;line-height:1.55;
+}
+.terms input{width:14px;height:14px;flex:0 0 auto;margin-top:2px;accent-color:var(--cyan)}
+.terms label{margin:0;color:#70869a;font-size:10px;font-weight:500}
+.terms a{color:var(--cyan);font-weight:700}
+.submit-btn{
+  width:100%;height:58px;border:0;border-radius:14px;color:#061012;
+  background:linear-gradient(100deg,#16c8f2,#087fc3 58%,#62ef70);
+  font-weight:900;cursor:pointer;box-shadow:0 14px 38px rgba(22,200,242,.14);
+}
+.auth-link{text-align:center;margin-top:17px;color:#6f8498;font-size:11px}
+.auth-link a{color:var(--cyan);font-weight:800}
+
+.visual-side{
+  position:relative;min-height:100vh;overflow:hidden;grid-column:2;grid-row:1;
+  background:
+    linear-gradient(135deg,rgba(3,8,17,.12),rgba(3,8,17,.60)),
+    linear-gradient(90deg,rgba(3,8,17,.92) 0%,rgba(3,8,17,.62) 46%,rgba(3,8,17,.20) 100%),
+    url("assets/img/auth/real-estate-journey.webp") center/cover no-repeat;
+}
+.visual-side:before{
+  content:"";position:absolute;inset:0;
+  background:
+    radial-gradient(circle at 16% 16%,rgba(22,200,242,.15),transparent 28%),
+    radial-gradient(circle at 88% 78%,rgba(98,239,112,.10),transparent 28%);
+  pointer-events:none;
+}
+.visual-side:after{
+  content:"";position:absolute;inset:0;
+  background:linear-gradient(180deg,rgba(3,8,17,.10) 0%,rgba(3,8,17,.04) 38%,rgba(3,8,17,.93) 100%);
+  pointer-events:none;
+}
+.visual-grid{
+  position:absolute;inset:0;opacity:.20;
+  background-image:linear-gradient(rgba(123,231,255,.045) 1px,transparent 1px),linear-gradient(90deg,rgba(123,231,255,.045) 1px,transparent 1px);
+  background-size:70px 70px;mask-image:linear-gradient(to bottom,black,transparent 90%);
+  animation:gridDrift 18s linear infinite;
+}
+@keyframes gridDrift{to{background-position:70px 70px}}
+.brand{
+  position:absolute;z-index:3;top:36px;left:36px;display:inline-flex;align-items:center;padding:10px 14px;border-radius:14px;background:rgba(4,24,30,.42);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);border:1px solid rgba(255,255,255,.14);
+}
+.brand img{display:block;width:220px;max-width:min(42vw,220px);height:auto;object-fit:contain;filter:drop-shadow(0 3px 10px rgba(0,0,0,.24))}
+.visual-copy{position:absolute;z-index:3;left:44px;right:42px;bottom:66px}
+.visual-copy .kicker{
+  display:inline-flex;align-items:center;gap:9px;color:#7be7ff;font-size:10px;font-weight:800;letter-spacing:2px;text-transform:uppercase;margin-bottom:15px;
+}
+.visual-copy .kicker i{font-size:6px}
+.visual-copy h2{
+  font-family:"Space Grotesk",sans-serif;font-size:clamp(36px,4vw,58px);
+  line-height:1.01;letter-spacing:-2.8px;max-width:650px;
+}
+.visual-copy h2 span{
+  background:linear-gradient(90deg,#fff 8%,#55eaff 55%,#ffd66e 100%);
+  -webkit-background-clip:text;background-clip:text;color:transparent;
+}
+.visual-copy p{color:#8fa5b9;font-size:13px;max-width:590px;margin-top:17px}
+.visual-stats{display:flex;gap:10px;flex-wrap:wrap;margin-top:24px}
+.visual-stat{
+  padding:10px 13px;border:1px solid rgba(22,200,242,.16);border-radius:13px;
+  background:rgba(4,12,24,.46);backdrop-filter:blur(12px);
+}
+.visual-stat strong{display:block;font:800 15px "Space Grotesk";color:#fff}
+.visual-stat span{font-size:8px;color:#7d93a8;text-transform:uppercase;letter-spacing:1px}
+
+/* =========================================================
+   HOVER — DESKTOP ONLY
+   ========================================================= */
+@media (min-width:1025px) and (hover:hover) and (pointer:fine){
+  .back-home,.brand img,.visual-stat,.role-option,.input-wrap input,.password-toggle,.terms a,.auth-link a,.submit-btn{
+    transition:transform .34s cubic-bezier(.22,1,.36,1),color .3s ease,border-color .3s ease,background .3s ease,box-shadow .34s ease,filter .3s ease;
+  }
+  .back-home:hover{color:#fff;transform:translateX(-4px)}
+  .brand:hover img{transform:translateY(-2px) scale(1.025);filter:drop-shadow(0 8px 25px rgba(22,200,242,.28))}
+  .visual-stat:hover{transform:translateY(-4px);border-color:rgba(123,231,255,.34);background:rgba(5,20,33,.70);box-shadow:0 15px 35px rgba(0,0,0,.24),0 0 20px rgba(22,200,242,.06)}
+  .role-option:not(.selected):hover{color:#eafaff;background:rgba(22,200,242,.07)}
+  .input-wrap input:hover{border-color:rgba(22,200,242,.34)}
+  .password-toggle:hover{color:var(--cyan);background:rgba(22,200,242,.09)}
+  .terms a:hover,.auth-link a:hover{color:#fff}
+  .submit-btn:hover{transform:translateY(-4px);filter:brightness(1.06);box-shadow:0 20px 48px rgba(22,200,242,.26)}
+}
+
+/* No hover effects on tablet/mobile/touch */
+@media (max-width:1024px),(hover:none),(pointer:coarse){
+  .back-home:hover,.brand:hover img,.visual-stat:hover,.role-option:hover,.input-wrap input:hover,.password-toggle:hover,.terms a:hover,.auth-link a:hover,.submit-btn:hover{
+    transform:none!important;
+  }
+  .back-home:hover{color:#8da3b7!important}
+  .visual-stat:hover{border-color:rgba(22,200,242,.16)!important;background:rgba(4,12,24,.46)!important;box-shadow:none!important}
+  .role-option:not(.selected):hover{color:#7890a8!important;background:transparent!important}
+  .input-wrap input:hover{border-color:rgba(137,204,255,.14)!important}
+  .password-toggle:hover{color:#71869a!important;background:transparent!important}
+  .terms a:hover,.auth-link a:hover{color:var(--cyan)!important}
+  .submit-btn:hover{filter:none!important;box-shadow:0 14px 38px rgba(22,200,242,.14)!important}
+}
+
+/* =========================================================
+   RESPONSIVE
+   ========================================================= */
+@media(max-width:900px){
+  .register-shell{display:flex;flex-direction:column;min-height:100vh}
+  .visual-side{order:1;min-height:430px;height:430px;width:100%}
+  .form-side{order:2;min-height:auto;width:100%;padding:38px 24px 48px}
+  .brand{top:22px;left:22px}
+  .brand img{width:170px}
+  .visual-copy{left:22px;right:22px;top:118px;bottom:auto}
+  .visual-copy h2{font-size:clamp(31px,7.2vw,46px)}
+  .visual-copy p,.visual-stats{display:none}
+  .form-wrap{max-width:650px}
+}
+@media(max-width:700px){
+  .finance-loader-core{width:min(286px,88vw);height:148px;border-radius:74px;margin-top:-18px}
+  .finance-logo-ring{inset:6px}
+  .finance-logo-shell{width:min(246px,78vw);height:92px;border-radius:18px;padding:7px 10px}
+  .finance-logo-shell img{width:min(222px,70vw)}
+  .impact-chart{right:calc(50% - 210px);top:calc(50% - 110px);width:78px;height:58px;margin-top:-18px}
+  .impact-heart{left:calc(50% - 205px);top:calc(50% + 45px);width:42px;height:42px;font-size:20px;margin-top:-18px}
+  .finance-loader-copy{top:calc(50% + 116px);margin-top:-18px}
+  .finance-loader-copy strong{font-size:22px;letter-spacing:5px}
+  .finance-loader-copy span{font-size:8px;letter-spacing:2px}
+  .finance-loader-copy small{font-size:7px;letter-spacing:1.1px}
+  .visual-side{min-height:360px;height:360px}
+  .brand{top:17px;left:18px}
+  .brand img{width:145px}
+  .visual-copy{left:18px;right:18px;top:94px}
+  .visual-copy .kicker{font-size:8px;letter-spacing:1.5px;margin-bottom:10px}
+  .visual-copy h2{font-size:clamp(28px,8vw,35px);letter-spacing:-1.5px}
+  .form-side{padding:28px 18px 38px}
+  .back-home{margin-bottom:22px}
+  .form-heading{margin-bottom:22px}
+  .form-heading h1{font-size:39px;letter-spacing:-2px}
+  .form-heading p{font-size:12px}
+  .form-group{margin-bottom:15px}
+  .input-wrap input{height:54px;border-radius:12px}
+  .role-option{min-height:52px;font-size:10px}
+  .submit-btn{height:54px;border-radius:12px}
+  .terms{font-size:9.5px}
+  .terms label{font-size:9.5px}
+}
+@media(max-width:450px){
+  .finance-loader-core{width:88vw}
+  .visual-side{min-height:335px;height:335px}
+  .brand{top:15px;left:16px}
+  .brand img{width:132px}
+  .visual-copy{left:16px;right:16px;top:86px}
+  .visual-copy .kicker{font-size:7px;letter-spacing:1.15px}
+  .visual-copy h2{font-size:26px}
+  .form-side{padding-left:14px;padding-right:14px}
+  .form-heading h1{font-size:35px}
+  .role-option{font-size:9px;gap:7px}
+}
+@media(prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;scroll-behavior:auto!important}
+}
+
+/* NON-PROFIT THEME OVERRIDES: replace finance visuals with community-focused imagery */
+.visual-side{background-image:linear-gradient(135deg,rgba(20,46,44,.90),rgba(28,78,67,.78)),url("assets/img/auth/real-estate-journey.webp") !important;background-size:cover !important;background-position:center !important;}
+.finance-loader-core{background:radial-gradient(ellipse at center,#24594c,#102f2a 68%,#0a201d) !important;border-color:rgba(255,255,255,.25) !important;box-shadow:0 0 70px rgba(66,155,120,.18),inset 0 0 42px rgba(255,255,255,.06) !important;}
+.finance-logo-ring{border-top-color:#f2c66d !important;border-right-color:#8ad2ad !important;}
+.finance-logo-shell{background:rgba(255,255,255,.95) !important;border-color:rgba(255,255,255,.3) !important;box-shadow:0 8px 28px rgba(0,0,0,.15) !important;}
+.finance-logo-shell img{filter:none !important;}
+.finance-loader-copy strong{background:linear-gradient(90deg,#fff,#f2c66d,#8ad2ad,#fff) !important;background-size:220% auto !important;}
+.finance-loader-copy span i{color:#f2c66d !important;}
+.finance-loader-grid{opacity:.08 !important;}
+
+/* ===== Stackly Real Estate light-theme alignment override ===== */
+:root{--black:#ffffff;--ink:#ffffff;--panel:#ffffff;--panel2:#fbf7ff;--cyan:#80549a;--blue:#7d4b96;--violet:#9b70b2;--pink:#c9a4dc;--white:#292033;--text:#51485b;--muted:#766b80;--line:rgba(103,72,125,.18);--gold:#8d5ca5;--gold2:#b68bc9}
+html,body{background:#fff!important;color:#292033!important}
+body{background:linear-gradient(180deg,#fff 0%,#fbf7ff 54%,#f0fbfc 100%)!important;color:#292033!important}
+.login-shell,.register-shell{background:transparent!important;color:#292033!important}
+.form-side,.form-wrap,.auth-wrapper,.auth-content{background:#fff!important;color:#292033!important}
+.form-side,.form-wrap{border:1px solid rgba(126,81,151,.15)!important;box-shadow:0 18px 55px rgba(72,45,89,.10)!important;border-radius:22px!important}
+h1,h2,h3,h4,h5,label,.form-heading,.auth-link{color:#382943!important}
+p,.form-subtitle,.auth-copy,.muted{color:#6d6274!important}
+input,select,textarea,.form-control{background:#fff!important;color:#302638!important;border:1px solid #ded2e6!important;box-shadow:none!important}
+input::placeholder,textarea::placeholder{color:#9a8ca3!important;opacity:1}
+input:focus,select:focus,textarea:focus,.form-control:focus{border-color:#986bb0!important;box-shadow:0 0 0 3px rgba(152,107,176,.14)!important;outline:none!important}
+button[type=submit],.btn-primary,.auth-submit,.login-submit,.register-submit{background:linear-gradient(100deg,#8c5aa5,#b38bc8)!important;color:#fff!important;border:0!important}
+a{color:#825398}
+/* Match the main Logistics site preloader: bright, simple, no dark finance animation */
+#preloader{position:fixed!important;inset:0!important;z-index:10000!important;display:grid!important;place-items:center!important;overflow:hidden!important;background:linear-gradient(145deg,#fff 0%,#fbf4ff 54%,#eafcff 100%)!important;opacity:1;visibility:visible;transition:opacity .45s ease,visibility .45s ease}
+#preloader:before,#preloader:after{content:none!important;display:none!important}
+.finance-loader-grid,.finance-orbit,.finance-loader-core,.finance-logo-ring,.finance-spark{display:none!important}
+#preloader:after{display:none!important}
+#preloader .nonprofit-preloader-mark{display:block!important;width:170px;height:100px;background:url("assets/img/auth/real-estate-journey.webp") center/contain no-repeat!important;animation:nonprofitLoaderPulse 1.5s ease-in-out infinite alternate}
+@keyframes nonprofitLoaderPulse{from{transform:scale(.97);opacity:.8}to{transform:scale(1);opacity:1}}
+body.loading{overflow-x:hidden!important}
+@media(max-width:767px){.form-side,.form-wrap{border-radius:18px!important;box-shadow:0 10px 30px rgba(72,45,89,.08)!important}}
+/* ===== end light-theme alignment override ===== */
+
+
+
+/* ===== FINAL NON-PROFIT LIGHT THEME ALIGNMENT ===== */
+:root{
+ --black:#ffffff!important;--ink:#ffffff!important;--panel:#ffffff!important;--panel2:#f8f4fb!important;
+ --cyan:#55d8ef!important;--blue:#8d5ca5!important;--violet:#b68bc9!important;--pink:#b68bc9!important;
+ --white:#302638!important;--text:#51465a!important;--muted:#75677d!important;--line:rgba(141,92,165,.20)!important;
+ --glow:rgba(141,92,165,.13)!important;
+}
+html,body{background:linear-gradient(180deg,#ffffff 0%,#fcf8ff 58%,#effcff 100%)!important;color:#302638!important}
+body{color:#302638!important}
+.login-shell,.register-shell{background:transparent!important;color:#302638!important}
+.form-side,.form-wrap,.auth-wrapper,.auth-content{background:rgba(255,255,255,.96)!important;color:#302638!important}
+.form-side,.form-wrap{border:1px solid rgba(141,92,165,.18)!important;box-shadow:0 18px 55px rgba(72,45,89,.09)!important}
+.form-side:before,.form-side:after,.form-wrap:before,.form-wrap:after{opacity:.12!important;pointer-events:none!important}
+h1,h2,h3,h4,h5,.heading h1,.form-heading,.auth-link,label,.form-group label{color:#382943!important}
+p,.heading p,.form-subtitle,.auth-copy,.muted,.back-home{color:#716477!important}
+.heading .eyebrow,.form-heading .eyebrow{color:#3bbecf!important}
+input,select,textarea,.form-control,.input-wrap,.form-input{background:#fff!important;color:#302638!important;border:1px solid #ded2e6!important;box-shadow:none!important}
+input::placeholder,textarea::placeholder{color:#9a8ca3!important;opacity:1!important}
+input:focus,select:focus,textarea:focus,.form-control:focus{border-color:#986bb0!important;box-shadow:0 0 0 3px rgba(152,107,176,.13)!important;outline:0!important}
+.back-home i,.back-home svg{color:#8d5ca5!important}
+.option,.role-option{color:#6d5d76!important;background:transparent!important}
+.option.active,.option[aria-pressed="true"],.role-option.active,.role-option[aria-pressed="true"],.role-option[aria-selected="true"]{background:linear-gradient(100deg,#8d5ca5,#b68bc9)!important;color:#fff!important}
+.role-select,.option-switch,.account-type,.role-switch{background:#f6effa!important;border:1px solid #e4d5eb!important}
+.btn-primary,.submit-btn,.auth-submit,.login-submit,.register-submit{background:linear-gradient(100deg,#8d5ca5,#b68bc9)!important;color:#fff!important;border:0!important;box-shadow:0 10px 24px rgba(141,92,165,.18)!important}
+.btn-primary:hover,.submit-btn:hover,.auth-submit:hover,.login-submit:hover,.register-submit:hover{filter:brightness(1.04)!important}
+.auth-link,.auth-link a{color:#6d5d76!important}.auth-link a{color:#8d5ca5!important}
+.demo-box{background:#f5eff9!important;border:1px solid #e1d3e8!important;color:#65566d!important}
+.demo-box strong,.demo-box li{color:#65566d!important}
+/* Make the nonprofit image panel bright and consistent with the public site, not dark-mode. */
+.visual-side{background-image:linear-gradient(135deg,rgba(255,255,255,.78),rgba(242,251,252,.84)),url("assets/img/auth/real-estate-journey.webp")!important;background-position:center!important;background-size:cover!important;color:#382943!important}
+.visual-side:before{background:radial-gradient(circle at 16% 16%,rgba(85,216,239,.18),transparent 30%),radial-gradient(circle at 88% 78%,rgba(182,139,201,.16),transparent 32%)!important;opacity:1!important}
+.visual-side:after{background:linear-gradient(180deg,rgba(255,255,255,.12),rgba(248,243,251,.48))!important;opacity:1!important}
+.visual-copy,.visual-copy *{color:#382943!important}
+.visual-copy h1,.visual-copy h2{color:#382943!important;text-shadow:none!important}
+.visual-copy .highlight,.visual-copy h1 span,.visual-copy .accent{color:#35bfd2!important}
+.visual-copy p{color:#665b6e!important}
+.visual-stats .visual-stat{background:rgba(255,255,255,.78)!important;border:1px solid rgba(141,92,165,.20)!important;color:#382943!important;box-shadow:0 8px 22px rgba(72,45,89,.06)!important}
+.visual-stats .visual-stat *{color:#665b6e!important}
+.brand img{filter:none!important;max-width:190px!important;max-height:62px!important;object-fit:contain!important}
+/* Consistent pale preloader: nonprofit logo and community colours, no finance/dark effects. */
+#preloader{background:linear-gradient(145deg,#ffffff 0%,#fbf6ff 55%,#effcff 100%)!important;color:#382943!important}
+#preloader:before{border-color:rgba(141,92,165,.12)!important;box-shadow:0 0 100px rgba(141,92,165,.05),inset 0 0 70px rgba(85,216,239,.06)!important}
+#preloader:after{background:radial-gradient(circle,rgba(85,216,239,.10),transparent 68%)!important}
+.finance-loader-grid,.finance-orbit,.finance-spark,.impact-chart,.impact-heart,.finance-percent{display:none!important}
+.finance-loader-core{filter:none!important}
+.finance-logo-ring{border-color:rgba(141,92,165,.25)!important;box-shadow:0 0 0 8px rgba(141,92,165,.04)!important}
+.finance-logo-shell{background:#fff!important;border:1px solid rgba(141,92,165,.16)!important;box-shadow:0 12px 36px rgba(72,45,89,.10)!important;border-radius:22px!important}
+.finance-logo-shell img{object-fit:contain!important;max-width:180px!important;max-height:80px!important}
+.finance-loader-copy strong{background:linear-gradient(90deg,#8d5ca5,#55d8ef,#b68bc9)!important;-webkit-background-clip:text!important;background-clip:text!important;color:transparent!important;text-shadow:none!important}
+.finance-loader-copy span{color:#8d5ca5!important}.finance-loader-copy span i{color:#55d8ef!important}.finance-loader-copy small{color:#75677d!important}
+.finance-progress{background:#eee5f3!important}.finance-progress span{background:linear-gradient(90deg,#8d5ca5,#55d8ef,#b68bc9)!important;box-shadow:none!important}
+@media(max-width:1024px){.visual-side{min-height:360px!important}.form-side{padding:32px 22px!important}}
+@media(max-width:767px){.login-shell,.register-shell{grid-template-columns:1fr!important}.visual-side{grid-column:1!important;grid-row:1!important;min-height:300px!important}.form-side{grid-column:1!important;grid-row:2!important;min-height:auto!important;padding:24px 16px!important}.visual-copy{left:24px!important;right:24px!important;bottom:28px!important}.brand{top:22px!important;left:24px!important}.form-wrap,.auth-wrapper{width:100%!important;max-width:100%!important}}
+/* ===== END FINAL NON-PROFIT LIGHT THEME ALIGNMENT ===== */
+
+
+/* FINAL FIX: remove the blank area below the auth layout while keeping a full-viewport split panel */
+html, body { width:100%; min-height:100%; height:auto; }
+body { display:block !important; min-height:100vh !important; height:auto !important; margin:0; overflow-x:hidden !important; }
+.login-shell, .register-shell { width:100%; min-height:100vh !important; height:auto !important; align-items:stretch; }
+.login-shell > .visual-side, .login-shell > .form-side, .register-shell > .visual-side, .register-shell > .form-side { min-height:100vh !important; height:auto !important; align-self:stretch; }
+@media (max-width:900px) {
+ .login-shell, .register-shell { min-height:100vh !important; height:auto !important; }
+ .login-shell > .visual-side, .register-shell > .visual-side { min-height:38vh !important; height:38vh !important; }
+ .login-shell > .form-side, .register-shell > .form-side { min-height:62vh !important; height:auto !important; }
+}
+
+
+
+/* FINAL FIX: remove the collapsed panels / blank page area */
+html, body {
+  width: 100%;
+  min-height: 100%;
+}
+body {
+  display: block !important;
+  place-items: initial !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  min-height: 0 !important;
+  height: auto !important;
+  overflow-x: hidden !important;
+}
+.login-shell,
+.register-shell {
+  display: grid !important;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr) !important;
+  width: 100% !important;
+  min-height: 100vh !important;
+  height: auto !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  align-items: stretch !important;
+}
+.login-shell > .visual-side,
+.register-shell > .visual-side,
+.login-shell > .form-side,
+.register-shell > .form-side {
+  min-width: 0 !important;
+  height: auto !important;
+  min-height: 100vh !important;
+  max-height: none !important;
+  margin: 0 !important;
+  align-self: stretch !important;
+}
+.login-shell > .visual-side,
+.register-shell > .visual-side {
+  grid-column: 1 !important;
+  grid-row: 1 !important;
+}
+.login-shell > .form-side {
+  grid-column: 2 !important;
+  grid-row: 1 !important;
+}
+.register-shell > .form-side {
+  grid-column: 1 !important;
+  grid-row: 1 !important;
+}
+.register-shell > .visual-side {
+  grid-column: 2 !important;
+  grid-row: 1 !important;
+}
+.login-shell > .form-side,
+.register-shell > .form-side {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  padding: 40px clamp(22px, 5vw, 76px) !important;
+}
+.login-shell .auth-wrapper,
+.register-shell .form-wrap {
+  width: 100% !important;
+  max-width: 650px !important;
+  margin: 0 auto !important;
+}
+@media (max-width: 900px) {
+  .login-shell,
+  .register-shell {
+    display: flex !important;
+    flex-direction: column !important;
+    min-height: 0 !important;
+    height: auto !important;
+  }
+  .login-shell > .visual-side,
+  .register-shell > .visual-side {
+    order: 1 !important;
+    width: 100% !important;
+    height: 300px !important;
+    min-height: 300px !important;
+    max-height: none !important;
+  }
+  .login-shell > .form-side,
+  .register-shell > .form-side {
+    order: 2 !important;
+    width: 100% !important;
+    height: auto !important;
+    min-height: 0 !important;
+    max-height: none !important;
+    padding: 32px 24px 40px !important;
+    align-items: flex-start !important;
+    justify-content: flex-start !important;
+  }
+  .login-shell .auth-wrapper,
+  .register-shell .form-wrap {
+    width: 100% !important;
+    max-width: 650px !important;
+  }
+}
+@media (max-width: 600px) {
+  .login-shell > .visual-side,
+  .register-shell > .visual-side {
+    height: 260px !important;
+    min-height: 260px !important;
+  }
+  .login-shell > .form-side,
+  .register-shell > .form-side {
+    padding: 26px 18px 32px !important;
+  }
+}
+
+
+/* STACKLY REAL ESTATE HOMEPAGE PRELOADER — shared with index.html */
+#preloader.preloader{align-items:center;cursor:default;display:flex;height:100%;justify-content:center;position:fixed;left:0;top:0;width:100%;z-index:9999999;background:#fff;overflow:hidden;}
+#preloader .animation-preloader{z-index:1000;position:relative;text-align:center;}
+#preloader .animation-preloader .spinner{animation:spinner 1s infinite linear;border-radius:50%;border:3px solid rgba(0,0,0,.2);border-top-color:#E3572D;height:9em;margin:0 auto 3.5em;width:9em;}
+#preloader .animation-preloader .txt-loading{font:700 5em "Manrope",Arial,sans-serif;text-align:center;user-select:none;letter-spacing:0;}
+#preloader .animation-preloader .txt-loading .letters-loading{color:#E3572D;position:relative;}
+#preloader .animation-preloader .txt-loading .letters-loading::before{animation:letters-loading 4s infinite;color:#16243E;content:attr(data-text-preloader);left:0;opacity:0;font-family:"Manrope",Arial,sans-serif;position:absolute;top:-3px;transform:rotateY(-90deg);}
+#preloader .animation-preloader .txt-loading .letters-loading:nth-child(2):before{animation-delay:.2s}
+#preloader .animation-preloader .txt-loading .letters-loading:nth-child(3):before{animation-delay:.4s}
+#preloader .animation-preloader .txt-loading .letters-loading:nth-child(4):before{animation-delay:.6s}
+#preloader .animation-preloader .txt-loading .letters-loading:nth-child(5):before{animation-delay:.8s}
+#preloader .animation-preloader .txt-loading .letters-loading:nth-child(6):before{animation-delay:1s}
+#preloader .animation-preloader .txt-loading .letters-loading:nth-child(7):before{animation-delay:1.2s}
+#preloader .animation-preloader .txt-loading .letters-loading:nth-child(8):before{animation-delay:1.4s}
+#preloader .animation-preloader p{font-size:16px;font-weight:500;text-transform:uppercase;letter-spacing:8px;color:#E3572D;margin-top:0;}
+#preloader .loader{position:fixed;top:0;left:0;width:100%;height:100%;font-size:0;z-index:1;pointer-events:none;}
+#preloader .loader .row{height:100%;display:flex;margin:0;}
+#preloader .loader .loader-section{padding:0;flex:0 0 25%;max-width:25%;}
+#preloader .loader .loader-section .bg{background-color:#fff;height:100%;left:0;width:100%;transition:all 800ms cubic-bezier(.77,0,.175,1);}
+#preloader.loaded .animation-preloader{opacity:0;transition:.3s ease-out;}
+#preloader.loaded .loader-section .bg{width:0;transition:width .7s .3s cubic-bezier(.1,.1,.1,1);}
+@keyframes spinner{to{transform:rotateZ(360deg)}}
+@keyframes letters-loading{0%,75%,100%{opacity:0;transform:rotateY(-90deg)}25%,50%{opacity:1;transform:rotateY(0deg)}}
+@media(max-width:767px){#preloader .animation-preloader .spinner{width:7.5em;height:7.5em;margin:0 auto 1.5em}#preloader .animation-preloader .txt-loading{font-size:2.5em}#preloader .animation-preloader p{font-size:16px;letter-spacing:8px}}
+@media(max-width:380px){#preloader .animation-preloader .spinner{width:6em;height:6em}#preloader .animation-preloader .txt-loading{font-size:2.2em}}
+@media(prefers-reduced-motion:reduce){#preloader .animation-preloader .spinner,#preloader .animation-preloader .txt-loading .letters-loading:before{animation-duration:2.5s}}
+
+
+/* ===== STACKLY REAL ESTATE AUTH THEME — visual-only adaptation ===== */
+:root{--ink:#fffaf7;--night:#fff5f0;--panel:#ffffff;--panel2:#f8eee9;--blue:#16243E;--cyan:#E3572D;--sky:#f7a184;--green:#E3572D;--gold:#E3572D;--gold2:#ff9a75;--white:#16243E;--soft:#555E72;--muted:#737b8b;--line:rgba(22,36,62,.14);--shadow:0 24px 70px rgba(22,36,62,.12);}
+html,body{background:#fffaf7!important;color:#16243E!important;font-family:"Manrope",Inter,Arial,sans-serif!important;}
+body{overflow-x:hidden!important;}
+.login-shell,.register-shell{background:#fffaf7!important;}
+.form-side{background:linear-gradient(145deg,#fffaf7 0%,#fff3ed 100%)!important;color:#16243E!important;}
+.form-side:before{background:radial-gradient(circle,rgba(227,87,45,.12),transparent 68%)!important;}
+.form-side:after{background:radial-gradient(circle,rgba(22,36,62,.07),transparent 68%)!important;}
+.auth-wrapper{background:rgba(255,255,255,.88)!important;border-color:rgba(22,36,62,.10)!important;box-shadow:0 18px 48px rgba(22,36,62,.08)!important;}
+.form-wrap{color:#16243E!important;}
+.heading h1,.form-heading h1,.heading label,.input-group label,.form-group label{color:#16243E!important;}
+.heading p,.form-heading p,.back-home,.auth-link,.demo-box{color:#687286!important;}
+.heading .eyebrow,.form-heading .eyebrow{color:#E3572D!important;}
+.back-home i,.input-wrap:focus-within>i,.forgot-pass-link:hover{color:#E3572D!important;}
+.input-wrap>i{color:#8b91a0!important;}
+.input-wrap input{color:#16243E!important;background:#fff!important;border-color:rgba(22,36,62,.16)!important;box-shadow:0 3px 12px rgba(22,36,62,.025)!important;}
+.input-wrap input::placeholder{color:#9a9eaa!important;}
+.input-wrap input:focus{border-color:#E3572D!important;box-shadow:0 0 0 3px rgba(227,87,45,.10)!important;background:#fff!important;}
+.password-toggle{color:#737b8b!important;}
+.password-toggle:hover{color:#E3572D!important;background:rgba(227,87,45,.08)!important;}
+.role-select,.custom-select{background:#fff!important;border:1px solid rgba(22,36,62,.16)!important;box-shadow:0 3px 12px rgba(22,36,62,.025)!important;}
+.role-option,.option{color:#687286!important;background:transparent!important;}
+.role-option.selected,.option.selected{color:#fff!important;background:linear-gradient(105deg,#E3572D,#f47b52)!important;box-shadow:0 9px 22px rgba(227,87,45,.18)!important;}
+.role-option:not(.selected):hover,.option:not(.selected):hover{color:#16243E!important;background:rgba(227,87,45,.07)!important;}
+.terms,.terms label,.remember-row,.remember-label,.demo-box{color:#687286!important;}
+.terms input,.remember-label input{accent-color:#E3572D!important;}
+.terms a,.auth-link a,.forgot-pass-link{color:#E3572D!important;}
+.form-status{border-color:rgba(227,87,45,.22)!important;color:#7b4939!important;background:rgba(227,87,45,.06)!important;}
+.error{color:#c83e2c!important;}
+.submit-btn,.btn-primary{color:#fff!important;background:linear-gradient(105deg,#E3572D,#f47b52)!important;box-shadow:0 12px 30px rgba(227,87,45,.17)!important;}
+.demo-box{border-color:rgba(22,36,62,.12)!important;background:#fff!important;}
+.demo-box strong{color:#16243E!important;}
+.visual-side{background-color:#16243E!important;background-image:linear-gradient(110deg,rgba(22,36,62,.82),rgba(22,36,62,.30)),url("assets/img/auth/real-estate-journey.webp")!important;background-position:center!important;background-size:cover!important;background-repeat:no-repeat!important;color:#fff!important;}
+.visual-side:before{background:radial-gradient(circle at 18% 15%,rgba(227,87,45,.22),transparent 30%),radial-gradient(circle at 88% 78%,rgba(255,255,255,.10),transparent 34%)!important;}
+.visual-side:after{background:linear-gradient(180deg,rgba(22,36,62,.03),rgba(22,36,62,.75))!important;}
+.visual-grid{background-image:linear-gradient(rgba(255,255,255,.06) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.06) 1px,transparent 1px)!important;}
+.brand{background:rgba(255,255,255,.94)!important;border:1px solid rgba(255,255,255,.65)!important;}
+.brand img{width:190px!important;max-width:min(42vw,190px)!important;max-height:62px!important;object-fit:contain!important;filter:none!important;}
+.visual-copy .kicker{color:#ffb397!important;}
+.visual-copy h2{color:#fff!important;}
+.visual-copy h2 span{background:linear-gradient(90deg,#fff 5%,#ffb08f 55%,#E3572D 100%)!important;-webkit-background-clip:text!important;background-clip:text!important;color:transparent!important;}
+.visual-copy p{color:rgba(255,255,255,.84)!important;}
+.visual-stat{border-color:rgba(255,255,255,.24)!important;background:rgba(22,36,62,.48)!important;}
+.visual-stat strong{color:#fff!important;}.visual-stat span{color:rgba(255,255,255,.72)!important;}
+@media(min-width:1025px) and (hover:hover) and (pointer:fine){.back-home:hover{color:#E3572D!important}.brand:hover img{filter:drop-shadow(0 5px 14px rgba(227,87,45,.22))!important}.submit-btn:hover,.btn-primary:hover{box-shadow:0 18px 38px rgba(227,87,45,.25)!important}}
+@media(max-width:1024px),(hover:none),(pointer:coarse){.back-home:hover{color:#687286!important}.password-toggle:hover{color:#737b8b!important;background:transparent!important}.terms a:hover,.auth-link a:hover,.forgot-pass-link:hover{color:#E3572D!important}.submit-btn:hover,.btn-primary:hover{box-shadow:0 12px 30px rgba(227,87,45,.17)!important;filter:none!important}}
+
+
+/* FINAL REAL ESTATE AUTH BRANDING FIX — crisp logo and property photography */
+.visual-side {
+  background-color: #16243e !important;
+  background-image:
+    linear-gradient(110deg, rgba(22,36,62,.78) 0%, rgba(22,36,62,.52) 54%, rgba(22,36,62,.28) 100%),
+    url("assets/img/auth/real-estate-journey.webp") !important;
+  background-position: center center !important;
+  background-size: cover !important;
+  background-repeat: no-repeat !important;
+  color: #fff !important;
+}
+.visual-side .brand {
+  background: transparent !important;
+  background-color: transparent !important;
+  border: 0 !important;
+  border-color: transparent !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+  padding: 0 !important;
+  min-height: 0 !important;
+  width: auto !important;
+  max-width: none !important;
+  overflow: visible !important;
+}
+.visual-side .brand img {
+  display: block !important;
+  width: 190px !important;
+  max-width: min(42vw, 190px) !important;
+  height: auto !important;
+  max-height: 62px !important;
+  object-fit: contain !important;
+  object-position: left center !important;
+  background: transparent !important;
+  border: 0 !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+  filter: none !important;
+}
+.visual-side:before {
+  background:
+    radial-gradient(circle at 18% 15%, rgba(227,87,45,.20), transparent 30%),
+    radial-gradient(circle at 88% 78%, rgba(255,255,255,.08), transparent 34%) !important;
+}
+@media (max-width: 1024px) {
+  .visual-side {
+    background-position: center center !important;
+    background-size: cover !important;
+  }
+  .visual-side .brand img {
+    width: 170px !important;
+    max-width: min(48vw, 170px) !important;
+    max-height: 54px !important;
+  }
+}
+@media (max-width: 600px) {
+  .visual-side .brand img {
+    width: 150px !important;
+    max-width: min(52vw, 150px) !important;
+    max-height: 48px !important;
+  }
+}
+
+</style>
+<style id="nonprofit-auth-background-fix">
+/* NON-PROFIT AUTH VISUAL FIX: use bundled community imagery with a light, readable overlay */
+.visual-side{
+  background-image:linear-gradient(135deg,rgba(255,255,255,.30),rgba(242,251,252,.42)),url("assets/img/auth/real-estate-journey.webp") !important;
+  background-position:center !important; background-size:cover !important; background-repeat:no-repeat !important;
+  background-color:#eaf9fb !important; color:#302638 !important;
+}
+.visual-side:before{background:radial-gradient(circle at 16% 16%,rgba(85,216,239,.16),transparent 32%),radial-gradient(circle at 88% 78%,rgba(182,139,201,.13),transparent 35%) !important;opacity:1!important}
+.visual-side:after{background:linear-gradient(180deg,rgba(255,255,255,.04) 0%,rgba(255,255,255,.08) 50%,rgba(248,243,251,.48) 100%) !important;opacity:1!important}
+.visual-copy h2,.visual-copy p,.visual-copy .kicker,.visual-stats,.visual-stat{color:#302638 !important}
+.visual-copy h2 span{color:#8d5ca5 !important}
+.visual-stats .visual-stat{background:rgba(255,255,255,.82)!important;border:1px solid rgba(141,92,165,.22)!important;color:#302638!important}
+.brand img{filter:none!important;object-fit:contain!important}
+@media(max-width:767px){.visual-side{background-position:center!important;min-height:300px!important}}
+</style>
+<style id="auth-input-border-fix">
+/* FIX: remove the extra square border around rounded authentication fields.
+   The input itself owns the visible rounded border; its wrapper must stay transparent. */
+.input-wrap { border: 0 !important; outline: 0 !important; box-shadow: none !important; background: transparent !important; padding: 0 !important; }
+.input-wrap:focus-within { border: 0 !important; outline: 0 !important; box-shadow: none !important; }
+.input-wrap > input, .input-wrap > .form-control { display: block; width: 100%; border-radius: 14px !important; box-sizing: border-box !important; }
+</style>
+
+<style id="nonprofit-auth-card-spacing-fix">
+/* Final layout correction: keep the page column separate from the padded form card. */
+.form-side{
+  box-sizing:border-box!important;
+  padding:42px clamp(18px,4vw,58px)!important;
+  border:0!important;
+  border-radius:0!important;
+  box-shadow:none!important;
+  background:transparent!important;
+  overflow:visible!important;
+}
+/* Register form card */
+.form-wrap{
+  box-sizing:border-box!important;
+  width:min(100%,650px)!important;
+  padding:clamp(22px,3vw,34px)!important;
+  margin:0 auto!important;
+  background:rgba(255,255,255,.98)!important;
+  border:1px solid rgba(141,92,165,.20)!important;
+  border-radius:22px!important;
+  box-shadow:0 18px 48px rgba(72,45,89,.09)!important;
+}
+/* Login form card */
+.auth-wrapper{
+  box-sizing:border-box!important;
+  width:min(100%,650px)!important;
+  padding:clamp(22px,3vw,34px)!important;
+  margin:0 auto!important;
+  background:rgba(255,255,255,.98)!important;
+  border:1px solid rgba(141,92,165,.20)!important;
+  border-radius:22px!important;
+  box-shadow:0 18px 48px rgba(72,45,89,.09)!important;
+}
+.auth-content{width:100%!important;max-width:100%!important;padding:0!important;background:transparent!important;border:0!important;box-shadow:none!important}
+.form-wrap form,.auth-content form{width:100%!important;max-width:100%!important}
+.form-wrap .input-wrap,.auth-content .input-wrap{width:100%!important;min-width:0!important;border:0!important;outline:0!important;box-shadow:none!important;background:transparent!important;padding:0!important}
+.form-wrap .input-wrap>input,.auth-content .input-wrap>input{display:block!important;width:100%!important;max-width:100%!important;box-sizing:border-box!important;border:1px solid #ded2e6!important;border-radius:14px!important;background:#fff!important;color:#302638!important}
+.form-wrap .input-wrap:focus-within,.auth-content .input-wrap:focus-within{border:0!important;outline:0!important;box-shadow:none!important}
+.form-group,.input-group{min-width:0!important;width:100%!important}
+.form-heading h1,.heading h1{overflow-wrap:normal!important;max-width:100%!important}
+@media(max-width:767px){
+ .form-side{padding:22px 14px!important}
+ .form-wrap,.auth-wrapper{width:100%!important;max-width:100%!important;padding:22px 18px!important;border-radius:18px!important}
+ .form-heading h1{font-size:clamp(30px,8vw,44px)!important;letter-spacing:-1.5px!important}
+}
+</style>
+
+<style id="auth-layout-final-clean-fix">
+/* Single document scrollbar; page height follows the actual auth content. */
+html { width:100%; height:auto !important; min-height:0 !important; overflow-x:hidden !important; overflow-y:auto !important; }
+body, body.loading, body.page-ready { display:block !important; width:100% !important; height:auto !important; min-height:0 !important; margin:0 !important; padding:0 !important; overflow-x:hidden !important; overflow-y:visible !important; }
+.login-shell, .register-shell { display:grid !important; grid-template-columns:minmax(0,1fr) minmax(0,1fr) !important; width:100% !important; height:auto !important; min-height:0 !important; margin:0 !important; padding:0 !important; align-items:stretch !important; }
+.login-shell > .form-side, .register-shell > .form-side { box-sizing:border-box !important; height:auto !important; min-height:0 !important; overflow:visible !important; align-self:stretch !important; }
+.login-shell > .visual-side, .register-shell > .visual-side { box-sizing:border-box !important; height:auto !important; min-height:0 !important; align-self:stretch !important; }
+@media (max-width:767px) {
+ .login-shell, .register-shell { grid-template-columns:minmax(0,1fr) !important; height:auto !important; min-height:0 !important; }
+ .login-shell > .form-side, .register-shell > .form-side { grid-column:1 !important; grid-row:2 !important; height:auto !important; min-height:0 !important; }
+ .login-shell > .visual-side, .register-shell > .visual-side { grid-column:1 !important; grid-row:1 !important; height:300px !important; min-height:300px !important; }
+}
+</style>
+
+<style id="stackly-auth-scroll-and-whitespace-final-fix">
+/* Final override: one document scrollbar and no forced blank viewport below the auth panel. */
+html {
+  width: 100% !important;
+  height: auto !important;
+  min-height: 0 !important;
+  overflow-x: clip !important;
+  overflow-y: auto !important;
+}
+body,
+body.loading,
+body.page-ready {
+  display: block !important;
+  width: 100% !important;
+  height: auto !important;
+  min-height: 0 !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  overflow-x: clip !important;
+  overflow-y: visible !important;
+}
+.login-shell,
+.register-shell {
+  display: grid !important;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr) !important;
+  width: 100% !important;
+  height: auto !important;
+  min-height: 0 !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  align-items: stretch !important;
+  overflow: visible !important;
+}
+.login-shell > .form-side,
+.login-shell > .visual-side,
+.register-shell > .form-side,
+.register-shell > .visual-side {
+  box-sizing: border-box !important;
+  height: auto !important;
+  min-height: 0 !important;
+  align-self: stretch !important;
+  overflow: visible !important;
+}
+.login-shell > .visual-side,
+.register-shell > .visual-side {
+  overflow: hidden !important;
+}
+@media (max-width: 900px) {
+  .login-shell,
+  .register-shell {
+    grid-template-columns: minmax(0, 1fr) !important;
+    min-height: 0 !important;
+    height: auto !important;
+  }
+  .login-shell > .visual-side,
+  .register-shell > .visual-side {
+    grid-column: 1 !important;
+    grid-row: 1 !important;
+    height: 300px !important;
+    min-height: 300px !important;
+    max-height: 300px !important;
+  }
+  .login-shell > .form-side,
+  .register-shell > .form-side {
+    grid-column: 1 !important;
+    grid-row: 2 !important;
+    height: auto !important;
+    min-height: 0 !important;
+  }
+}
+@media (max-width: 480px) {
+  .login-shell > .visual-side,
+  .register-shell > .visual-side {
+    height: 240px !important;
+    min-height: 240px !important;
+    max-height: 240px !important;
+  }
+}
+</style>
+
+
+<style id="stackly-remove-auth-bottom-blank-space">
+/* Remove the empty area below the login/register page content. */
+html {
+  height: auto !important;
+  min-height: 0 !important;
+  overflow-x: clip !important;
+}
+body {
+  height: auto !important;
+  min-height: 0 !important;
+  margin-bottom: 0 !important;
+  padding-bottom: 0 !important;
+  overflow-x: clip !important;
+}
+main,
+.auth-page,
+.auth-wrapper,
+.login-shell,
+.register-shell,
+.login-page,
+.register-page,
+.page-wrapper,
+.container-fluid {
+  margin-bottom: 0 !important;
+  padding-bottom: 0 !important;
+}
+</style>
+
+
+<style id="stackly-auth-collapse-empty-page-tail">
+/* Collapse empty page tail after the login/register content without clipping the form. */
+html, body {
+  height: auto !important;
+  min-height: 0 !important;
+}
+body {
+  display: flow-root !important;
+  margin-block-end: 0 !important;
+  padding-block-end: 0 !important;
+  overflow-x: clip !important;
+}
+body > :last-child {
+  margin-block-end: 0 !important;
+}
+.login-shell, .register-shell,
+.login-page, .register-page,
+.auth-shell, .auth-container, .auth-layout,
+main, footer {
+  margin-block-end: 0 !important;
+  padding-block-end: 0 !important;
+}
+</style>
+
+
+<style id="auth-bottom-whitespace-targeted-fix">
+/* Keep login/register page height tied to the actual content; remove forced viewport-height tails. */
+html, body { height:auto !important; min-height:0 !important; }
+body { margin:0 !important; padding-bottom:0 !important; }
+.login-shell, .register-shell {
+  height:auto !important; min-height:0 !important; margin-bottom:0 !important;
+  padding-bottom:0 !important; align-items:stretch !important;
+}
+.login-shell > .form-side, .register-shell > .form-side {
+  height:auto !important; min-height:0 !important; margin-bottom:0 !important;
+  padding-bottom:24px !important; align-self:stretch !important;
+}
+.login-shell > .visual-side, .register-shell > .visual-side {
+  height:auto !important; min-height:0 !important; align-self:stretch !important;
+}
+@media (max-width:900px) {
+  .login-shell, .register-shell { height:auto !important; min-height:0 !important; }
+  .login-shell > .visual-side, .register-shell > .visual-side {
+    height:240px !important; min-height:240px !important; max-height:240px !important;
+  }
+  .login-shell > .form-side, .register-shell > .form-side {
+    height:auto !important; min-height:0 !important; padding-bottom:22px !important;
+  }
+}
+</style>
+
+<style id="FINAL-AUTH-WHITESPACE-FIX">
+/* FINAL FIX: prevent body grid and viewport-height panels from creating a blank page tail */
+html, body {
+  height: auto !important;
+  min-height: 0 !important;
+}
+body {
+  display: block !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  overflow-x: hidden !important;
+}
+.login-shell, .register-shell {
+  display: grid !important;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr) !important;
+  height: auto !important;
+  min-height: 0 !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  align-items: stretch !important;
+}
+.login-shell > .visual-side,
+.login-shell > .form-side,
+.register-shell > .visual-side,
+.register-shell > .form-side,
+.visual-side, .form-side {
+  height: auto !important;
+  min-height: 0 !important;
+  margin-block: 0 !important;
+  align-self: stretch !important;
+}
+.form-side {
+  padding-top: 32px !important;
+  padding-bottom: 32px !important;
+}
+.visual-side {
+  padding-bottom: 32px !important;
+}
+@media (max-width: 900px) {
+  .login-shell, .register-shell {
+    display: flex !important;
+    flex-direction: column !important;
+  }
+  .login-shell > .visual-side,
+  .register-shell > .visual-side,
+  .visual-side {
+    order: 1 !important;
+    width: 100% !important;
+    height: 240px !important;
+    min-height: 240px !important;
+    max-height: 240px !important;
+  }
+  .login-shell > .form-side,
+  .register-shell > .form-side,
+  .form-side {
+    order: 2 !important;
+    width: 100% !important;
+    height: auto !important;
+    min-height: 0 !important;
+    padding: 28px 22px 32px !important;
+  }
+}
+</style>
+
+<style id="stackly-auth-remove-blank-space-below-form">
+/* FIX: The decorative glow pseudo-elements (.form-side:before/:after) hang
+   ~260-280px below the form panel. With overflow:visible they stretch the
+   document and leave an unwanted blank white space below the login/register
+   form. Clip them at the panel edge; nothing else is affected. */
+.login-shell > .form-side,
+.register-shell > .form-side{
+  overflow: clip !important;
+}
+</style>
+
+
+<style id="stackly-logistics-register-theme-final">
+/* Match login.html and the Stackly Real Estate reference palette. */
+:root{
+ --ink:#fff;--night:#fff;--panel:#fff;--panel2:#f7f9fa;
+ --blue:#0E313A;--cyan:#FF5C01;--sky:#FF7D44;--green:#FF7D44;
+ --gold:#FF7D44;--gold2:#FF7D44;--white:#0E313A;--soft:#666;
+ --muted:#666;--line:rgba(14,49,58,.16);--shadow:0 20px 50px rgba(14,49,58,.08);
+ --color-primary:#FF5C01;--color-secondary:#FF7D44;--color-heading:#0E313A;--color-paragraph:#666;
+}
+html,body{font-family:Inter,Arial,sans-serif!important;background:#fff!important;color:#666!important}
+h1,h2,h3,h4,h5,h6,.form-heading h1,.visual-copy h2{font-family:Inter,Arial,sans-serif!important}
+.register-shell{background:#fff!important}
+.form-side{background:#fff!important;color:#666!important}
+.form-side:before{background:radial-gradient(circle,rgba(255,92,1,.08),transparent 68%)!important}
+.form-side:after{background:radial-gradient(circle,rgba(14,49,58,.05),transparent 68%)!important}
+.back-home{color:#666!important}.back-home i{color:#FF5C01!important}
+.form-heading .eyebrow{color:#FF5C01!important}
+.form-heading h1{color:#0E313A!important}
+.form-heading h1 span{color:#FF5C01!important}
+.form-heading p{color:#666!important}
+.form-group label{color:#0E313A!important}
+.input-wrap>i{color:#0E313A!important}
+.input-wrap input{color:#0E313A!important;background:#fff!important;border-color:rgba(14,49,58,.20)!important}
+.input-wrap input::placeholder{color:#7c898d!important}
+.input-wrap input:focus{border-color:#FF5C01!important;box-shadow:0 0 0 3px rgba(255,92,1,.12)!important;background:#fff!important}
+.input-wrap:focus-within>i{color:#FF5C01!important}
+.password-toggle{color:#0E313A!important}
+.role-select{background:#f4f8fa!important;border-color:#cbd7dc!important;box-shadow:none!important}
+.role-option{color:#0E313A!important;background:transparent!important}
+.role-option.selected{background:linear-gradient(100deg,#FF5C01,#FF7D44)!important;color:#fff!important;box-shadow:0 8px 20px rgba(255,92,1,.18)!important}
+.terms,.terms label{color:#666!important}.terms input{accent-color:#FF5C01!important}.terms a,.auth-link a{color:#FF5C01!important}
+.submit-btn,button[type="submit"]{background:linear-gradient(100deg,#FF5C01,#FF7D44)!important;color:#fff!important;border:0!important;box-shadow:0 10px 24px rgba(255,92,1,.18)!important}
+.auth-link{color:#666!important}
+.form-status{border-color:rgba(255,92,1,.24)!important;color:#0E313A!important;background:rgba(255,92,1,.05)!important}
+.error{color:#c62828!important}
+.visual-side{
+ background:
+  linear-gradient(135deg,rgba(14,49,58,.25),rgba(14,49,58,.68)),
+  url("assets/img/auth/real-estate-journey.webp") center/cover no-repeat!important;
+}
+.visual-side:before{background:radial-gradient(circle at 16% 16%,rgba(255,92,1,.12),transparent 28%),radial-gradient(circle at 88% 78%,rgba(255,125,68,.10),transparent 28%)!important}
+.visual-side:after{background:linear-gradient(180deg,rgba(14,49,58,.08) 0%,rgba(14,49,58,.04) 38%,rgba(14,49,58,.82) 100%)!important}
+.visual-copy .kicker{color:#FF5C01!important}
+.visual-copy h2{color:#F4F7F8!important;text-shadow:0 1px 2px rgba(0,0,0,.18)}
+.visual-copy h2 span{background:linear-gradient(90deg,#FFB184 0%,#FF7D44 48%,#FF5C01 100%)!important;-webkit-background-clip:text!important;background-clip:text!important;color:transparent!important}
+.visual-copy p{color:#f4f7f8!important}
+.visual-stat{border-color:rgba(255,255,255,.24)!important;background:rgba(14,49,58,.42)!important}
+.visual-stat strong{color:#fff!important}.visual-stat span{color:#f4f7f8!important}
+#preloader{background:#fff!important}
+.stackly-loader-inner{position:fixed!important;inset:0!important;width:100%!important;height:100vh!important;display:flex!important;align-items:center!important;justify-content:center!important;background:#fff!important}
+.stackly-loader{position:relative!important;width:8px!important;height:8px!important;margin:0 0 0 92px!important}
+.stackly-loader-item{position:absolute!important;width:6px!important;height:80px!important;margin-top:-45px!important;border-radius:0!important;background:#FF5C01!important;animation:urane-loader-aim .8s infinite alternate-reverse!important}
+.stackly-loader-item:nth-child(1){margin-left:0!important}.stackly-loader-item:nth-child(2){margin-left:-14px!important;animation-delay:.1s!important}.stackly-loader-item:nth-child(3){margin-left:-28px!important;animation-delay:.2s!important}.stackly-loader-item:nth-child(4){margin-left:-42px!important;animation-delay:.3s!important}.stackly-loader-item:nth-child(5){margin-left:-56px!important;animation-delay:.4s!important}.stackly-loader-item:nth-child(6){margin-left:-70px!important;animation-delay:.5s!important}.stackly-loader-item:nth-child(7){margin-left:-84px!important;animation-delay:.6s!important}.stackly-loader-item:nth-child(8){margin-left:-98px!important;animation-delay:.7s!important}
+@keyframes urane-loader-aim{0%{transform:scaleY(1)}100%{transform:scaleY(.25)}}
+@media(max-width:767px){.stackly-loader{transform:scale(.8)!important;margin-left:66px!important}}
+@media(min-width:1025px) and (hover:hover) and (pointer:fine){
+ .submit-btn:hover,button[type="submit"]:hover{background:linear-gradient(100deg,#E94D00,#FF5C01)!important;transform:translateY(-3px)}
+}
+@media(max-width:1024px),(hover:none),(pointer:coarse){
+ .submit-btn:hover,button[type="submit"]:hover,.role-option:hover{transform:none!important}
+}
+</style>
+
+
+<style id="register-match-login-preloader-and-logo">
+/* Exact Stackly Real Estate preloader treatment used by the attached login.html. */
+#preloader{
+  position:fixed!important;
+  inset:0!important;
+  width:100%!important;
+  height:100%!important;
+  background:#fff!important;
+  z-index:10000!important;
+  display:block!important;
+  opacity:1;
+  visibility:visible;
+  transition:opacity .45s ease,visibility .45s ease;
+}
+.stackly-loader-inner{
+  position:fixed!important;
+  inset:0!important;
+  width:100%!important;
+  height:100vh!important;
+  display:flex!important;
+  align-items:center!important;
+  justify-content:center!important;
+  background:#fff!important;
+}
+.stackly-loader{
+  position:relative!important;
+  width:8px!important;
+  height:8px!important;
+  margin:0 0 0 92px!important;
+}
+.stackly-loader-item{
+  position:absolute!important;
+  width:6px!important;
+  height:80px!important;
+  margin-top:-45px!important;
+  border-radius:0!important;
+  background:#FF5C01!important;
+  animation:urane-loader-aim .8s infinite alternate-reverse!important;
+}
+.stackly-loader-item:nth-child(1){margin-left:0!important}
+.stackly-loader-item:nth-child(2){margin-left:-14px!important;animation-delay:.1s!important}
+.stackly-loader-item:nth-child(3){margin-left:-28px!important;animation-delay:.2s!important}
+.stackly-loader-item:nth-child(4){margin-left:-42px!important;animation-delay:.3s!important}
+.stackly-loader-item:nth-child(5){margin-left:-56px!important;animation-delay:.4s!important}
+.stackly-loader-item:nth-child(6){margin-left:-70px!important;animation-delay:.5s!important}
+.stackly-loader-item:nth-child(7){margin-left:-84px!important;animation-delay:.6s!important}
+.stackly-loader-item:nth-child(8){margin-left:-98px!important;animation-delay:.7s!important}
+@keyframes urane-loader-aim{0%{transform:scaleY(1)}100%{transform:scaleY(.25)}}
+@media(max-width:767px){
+  .stackly-loader{transform:scale(.8)!important;margin-left:66px!important}
+}
+@media(prefers-reduced-motion:reduce){.stackly-loader-item{animation:none!important}}
+
+/* Match the logo badge and image sizing from login.html without changing the existing visual panel layout. */
+.brand{
+  background:rgba(255,255,255,.94)!important;
+  border-color:rgba(255,255,255,.5)!important;
+}
+.brand img{
+  width:190px!important;
+  max-width:min(42vw,190px)!important;
+  max-height:62px!important;
+  object-fit:contain!important;
+  filter:none!important;
+}
+</style>
+
+<style id="stackly-real-estate-auth-final">
+
+/* STACKLY REAL ESTATE HOMEPAGE PRELOADER — shared with index.html */
+#preloader.preloader{align-items:center;cursor:default;display:flex;height:100%;justify-content:center;position:fixed;left:0;top:0;width:100%;z-index:9999999;background:#fff;overflow:hidden;}
+#preloader .animation-preloader{z-index:1000;position:relative;text-align:center;}
+#preloader .animation-preloader .spinner{animation:spinner 1s infinite linear;border-radius:50%;border:3px solid rgba(0,0,0,.2);border-top-color:#E3572D;height:9em;margin:0 auto 3.5em;width:9em;}
+#preloader .animation-preloader .txt-loading{font:700 5em "Manrope",Arial,sans-serif;text-align:center;user-select:none;letter-spacing:0;}
+#preloader .animation-preloader .txt-loading .letters-loading{color:#E3572D;position:relative;}
+#preloader .animation-preloader .txt-loading .letters-loading::before{animation:letters-loading 4s infinite;color:#16243E;content:attr(data-text-preloader);left:0;opacity:0;font-family:"Manrope",Arial,sans-serif;position:absolute;top:-3px;transform:rotateY(-90deg);}
+#preloader .animation-preloader .txt-loading .letters-loading:nth-child(2):before{animation-delay:.2s}
+#preloader .animation-preloader .txt-loading .letters-loading:nth-child(3):before{animation-delay:.4s}
+#preloader .animation-preloader .txt-loading .letters-loading:nth-child(4):before{animation-delay:.6s}
+#preloader .animation-preloader .txt-loading .letters-loading:nth-child(5):before{animation-delay:.8s}
+#preloader .animation-preloader .txt-loading .letters-loading:nth-child(6):before{animation-delay:1s}
+#preloader .animation-preloader .txt-loading .letters-loading:nth-child(7):before{animation-delay:1.2s}
+#preloader .animation-preloader .txt-loading .letters-loading:nth-child(8):before{animation-delay:1.4s}
+#preloader .animation-preloader p{font-size:16px;font-weight:500;text-transform:uppercase;letter-spacing:8px;color:#E3572D;margin-top:0;}
+#preloader .loader{position:fixed;top:0;left:0;width:100%;height:100%;font-size:0;z-index:1;pointer-events:none;}
+#preloader .loader .row{height:100%;display:flex;margin:0;}
+#preloader .loader .loader-section{padding:0;flex:0 0 25%;max-width:25%;}
+#preloader .loader .loader-section .bg{background-color:#fff;height:100%;left:0;width:100%;transition:all 800ms cubic-bezier(.77,0,.175,1);}
+#preloader.loaded .animation-preloader{opacity:0;transition:.3s ease-out;}
+#preloader.loaded .loader-section .bg{width:0;transition:width .7s .3s cubic-bezier(.1,.1,.1,1);}
+@keyframes spinner{to{transform:rotateZ(360deg)}}
+@keyframes letters-loading{0%,75%,100%{opacity:0;transform:rotateY(-90deg)}25%,50%{opacity:1;transform:rotateY(0deg)}}
+@media(max-width:767px){#preloader .animation-preloader .spinner{width:7.5em;height:7.5em;margin:0 auto 1.5em}#preloader .animation-preloader .txt-loading{font-size:2.5em}#preloader .animation-preloader p{font-size:16px;letter-spacing:8px}}
+@media(max-width:380px){#preloader .animation-preloader .spinner{width:6em;height:6em}#preloader .animation-preloader .txt-loading{font-size:2.2em}}
+@media(prefers-reduced-motion:reduce){#preloader .animation-preloader .spinner,#preloader .animation-preloader .txt-loading .letters-loading:before{animation-duration:2.5s}}
+
+
+/* ===== STACKLY REAL ESTATE AUTH THEME — visual-only adaptation ===== */
+:root{--ink:#fffaf7;--night:#fff5f0;--panel:#ffffff;--panel2:#f8eee9;--blue:#16243E;--cyan:#E3572D;--sky:#f7a184;--green:#E3572D;--gold:#E3572D;--gold2:#ff9a75;--white:#16243E;--soft:#555E72;--muted:#737b8b;--line:rgba(22,36,62,.14);--shadow:0 24px 70px rgba(22,36,62,.12);}
+html,body{background:#fffaf7!important;color:#16243E!important;font-family:"Manrope",Inter,Arial,sans-serif!important;}
+body{overflow-x:hidden!important;}
+.login-shell,.register-shell{background:#fffaf7!important;}
+.form-side{background:linear-gradient(145deg,#fffaf7 0%,#fff3ed 100%)!important;color:#16243E!important;}
+.form-side:before{background:radial-gradient(circle,rgba(227,87,45,.12),transparent 68%)!important;}
+.form-side:after{background:radial-gradient(circle,rgba(22,36,62,.07),transparent 68%)!important;}
+.auth-wrapper{background:rgba(255,255,255,.88)!important;border-color:rgba(22,36,62,.10)!important;box-shadow:0 18px 48px rgba(22,36,62,.08)!important;}
+.form-wrap{color:#16243E!important;}
+.heading h1,.form-heading h1,.heading label,.input-group label,.form-group label{color:#16243E!important;}
+.heading p,.form-heading p,.back-home,.auth-link,.demo-box{color:#687286!important;}
+.heading .eyebrow,.form-heading .eyebrow{color:#E3572D!important;}
+.back-home i,.input-wrap:focus-within>i,.forgot-pass-link:hover{color:#E3572D!important;}
+.input-wrap>i{color:#8b91a0!important;}
+.input-wrap input{color:#16243E!important;background:#fff!important;border-color:rgba(22,36,62,.16)!important;box-shadow:0 3px 12px rgba(22,36,62,.025)!important;}
+.input-wrap input::placeholder{color:#9a9eaa!important;}
+.input-wrap input:focus{border-color:#E3572D!important;box-shadow:0 0 0 3px rgba(227,87,45,.10)!important;background:#fff!important;}
+.password-toggle{color:#737b8b!important;}
+.password-toggle:hover{color:#E3572D!important;background:rgba(227,87,45,.08)!important;}
+.role-select,.custom-select{background:#fff!important;border:1px solid rgba(22,36,62,.16)!important;box-shadow:0 3px 12px rgba(22,36,62,.025)!important;}
+.role-option,.option{color:#687286!important;background:transparent!important;}
+.role-option.selected,.option.selected{color:#fff!important;background:linear-gradient(105deg,#E3572D,#f47b52)!important;box-shadow:0 9px 22px rgba(227,87,45,.18)!important;}
+.role-option:not(.selected):hover,.option:not(.selected):hover{color:#16243E!important;background:rgba(227,87,45,.07)!important;}
+.terms,.terms label,.remember-row,.remember-label,.demo-box{color:#687286!important;}
+.terms input,.remember-label input{accent-color:#E3572D!important;}
+.terms a,.auth-link a,.forgot-pass-link{color:#E3572D!important;}
+.form-status{border-color:rgba(227,87,45,.22)!important;color:#7b4939!important;background:rgba(227,87,45,.06)!important;}
+.error{color:#c83e2c!important;}
+.submit-btn,.btn-primary{color:#fff!important;background:linear-gradient(105deg,#E3572D,#f47b52)!important;box-shadow:0 12px 30px rgba(227,87,45,.17)!important;}
+.demo-box{border-color:rgba(22,36,62,.12)!important;background:#fff!important;}
+.demo-box strong{color:#16243E!important;}
+.visual-side{background-color:#16243E!important;background-image:linear-gradient(110deg,rgba(22,36,62,.82),rgba(22,36,62,.30)),url("assets/img/auth/real-estate-journey.webp")!important;background-position:center!important;background-size:cover!important;background-repeat:no-repeat!important;color:#fff!important;}
+.visual-side:before{background:radial-gradient(circle at 18% 15%,rgba(227,87,45,.22),transparent 30%),radial-gradient(circle at 88% 78%,rgba(255,255,255,.10),transparent 34%)!important;}
+.visual-side:after{background:linear-gradient(180deg,rgba(22,36,62,.03),rgba(22,36,62,.75))!important;}
+.visual-grid{background-image:linear-gradient(rgba(255,255,255,.06) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.06) 1px,transparent 1px)!important;}
+.brand{background:rgba(255,255,255,.94)!important;border:1px solid rgba(255,255,255,.65)!important;}
+.brand img{width:190px!important;max-width:min(42vw,190px)!important;max-height:62px!important;object-fit:contain!important;filter:none!important;}
+.visual-copy .kicker{color:#ffb397!important;}
+.visual-copy h2{color:#fff!important;}
+.visual-copy h2 span{background:linear-gradient(90deg,#fff 5%,#ffb08f 55%,#E3572D 100%)!important;-webkit-background-clip:text!important;background-clip:text!important;color:transparent!important;}
+.visual-copy p{color:rgba(255,255,255,.84)!important;}
+.visual-stat{border-color:rgba(255,255,255,.24)!important;background:rgba(22,36,62,.48)!important;}
+.visual-stat strong{color:#fff!important;}.visual-stat span{color:rgba(255,255,255,.72)!important;}
+@media(min-width:1025px) and (hover:hover) and (pointer:fine){.back-home:hover{color:#E3572D!important}.brand:hover img{filter:drop-shadow(0 5px 14px rgba(227,87,45,.22))!important}.submit-btn:hover,.btn-primary:hover{box-shadow:0 18px 38px rgba(227,87,45,.25)!important}}
+@media(max-width:1024px),(hover:none),(pointer:coarse){.back-home:hover{color:#687286!important}.password-toggle:hover{color:#737b8b!important;background:transparent!important}.terms a:hover,.auth-link a:hover,.forgot-pass-link:hover{color:#E3572D!important}.submit-btn:hover,.btn-primary:hover{box-shadow:0 12px 30px rgba(227,87,45,.17)!important;filter:none!important}}
+
+
+/* Match the homepage preloader positioning on every viewport.
+   A later auth-page override had changed #preloader to display:block,
+   which pinned the animation group to the top. */
+html, body { min-height: 100%; }
+#preloader,
+body #preloader.preloader {
+  position: fixed !important;
+  inset: 0 !important;
+  width: 100vw !important;
+  height: 100vh !important;
+  height: 100dvh !important;
+  min-height: 100vh !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  place-items: center !important;
+  overflow: hidden !important;
+  padding: 0 !important;
+  margin: 0 !important;
+}
+#preloader .animation-preloader {
+  position: relative !important;
+  inset: auto !important;
+  top: auto !important;
+  left: auto !important;
+  right: auto !important;
+  bottom: auto !important;
+  transform: none !important;
+  margin: auto !important;
+  width: max-content;
+  max-width: 100%;
+  flex: 0 0 auto;
+  text-align: center !important;
+}
+#preloader .animation-preloader .spinner {
+  margin-left: auto !important;
+  margin-right: auto !important;
+}
+@media (max-width: 767px) {
+  #preloader,
+  body #preloader.preloader {
+    height: 100vh !important;
+    height: 100dvh !important;
+  }
+  #preloader .animation-preloader {
+    margin: auto !important;
+  }
+}
+
+</style>
+</head>
+
+<body class="loading">
+
+
+
+        
+        <!-- Preloader Start -->
+        <div id="preloader" class="preloader">
+            <div class="animation-preloader">
+                <div class="spinner">                
+                </div>
+                <div class="txt-loading">
+                                <span data-text-preloader="S" class="letters-loading">
+                                    S
+                                </span>
+                                <span data-text-preloader="T" class="letters-loading">
+                                    T
+                                </span>
+                                <span data-text-preloader="A" class="letters-loading">
+                                    A
+                                </span>
+                                <span data-text-preloader="C" class="letters-loading">
+                                    C
+                                </span>
+                                <span data-text-preloader="K" class="letters-loading">
+                                    K
+                                </span>
+                                <span data-text-preloader="L" class="letters-loading">
+                                    L
+                                </span>
+                                <span data-text-preloader="Y" class="letters-loading">
+                                    Y
+                                </span>
+                            </div>
+                <p class="text-center">Loading</p>
+            </div>
+            <div class="loader">
+                <div class="row">
+                    <div class="col-3 loader-section section-left">
+                        <div class="bg"></div>
+                    </div>
+                    <div class="col-3 loader-section section-left">
+                        <div class="bg"></div>
+                    </div>
+                    <div class="col-3 loader-section section-right">
+                        <div class="bg"></div>
+                    </div>
+                    <div class="col-3 loader-section section-right">
+                        <div class="bg"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+<div class="register-shell">
+
+  <!-- REGISTER FORM -->
+  <section class="form-side" aria-label="Create Stackly Real Estate account">
+    <div class="form-wrap">
+      <a href="index.html" class="back-home">
+        <i class="fa-solid fa-arrow-left"></i> Back to website
+      </a>
+
+      <div class="form-heading">
+        <div class="eyebrow">Your Real Estate Account</div>
+        <h1>FIND YOUR <span>PLACE.</span></h1>
+        <p>Create your Stackly Real Estate account to save favourite homes, manage property enquiries and stay connected with our team.</p>
+      </div>
+
+      <div id="formStatus" class="form-status" aria-live="polite"></div>
+
+      <form id="registerForm" novalidate>
+
+        <div class="form-group">
+          <label for="name">Full Name</label>
+          <div class="input-wrap">
+            <i class="fa-regular fa-user"></i>
+            <input type="text" id="name" placeholder="Your full name" autocomplete="name">
+          </div>
+          <p id="nameError" class="error">Please enter your full name using letters and spaces.</p>
+        </div>
+
+        <div class="form-group">
+          <label>Account Type</label>
+          <div class="role-select" id="roleSelect" role="radiogroup" aria-label="Account Type">
+            <button type="button" class="role-option" data-value="Admin" aria-pressed="false">
+              <i class="fa-solid fa-user-shield"></i><span>ADMIN</span>
+            </button>
+            <button type="button" class="role-option" data-value="User" aria-pressed="false">
+              <i class="fa-solid fa-chart-line"></i><span>USER</span>
+            </button>
+          </div>
+          <input type="hidden" id="role" value="">
+          <p id="roleError" class="error">Please select an account type.</p>
+        </div>
+
+        <div class="form-group">
+          <label for="email">Email Address</label>
+          <div class="input-wrap">
+            <i class="fa-regular fa-envelope"></i>
+            <input type="email" id="email" placeholder="you@domain.com" autocomplete="email">
+          </div>
+          <p id="emailError" class="error">Please enter a valid email address.</p>
+        </div>
+
+        <div class="form-group">
+          <label for="password">Password</label>
+          <div class="input-wrap">
+            <i class="fa-solid fa-lock"></i>
+            <input type="password" id="password" placeholder="Create a strong password" autocomplete="new-password">
+            <button type="button" class="password-toggle" id="togglePass1" aria-label="Show password">
+              <i class="fa-solid fa-eye"></i>
+            </button>
+          </div>
+          <p id="passError" class="error">Min 8 chars, 1 uppercase, 1 lowercase, 1 number &amp; 1 symbol.</p>
+        </div>
+
+        <div class="form-group">
+          <label for="confirmPassword">Confirm Password</label>
+          <div class="input-wrap">
+            <i class="fa-solid fa-lock"></i>
+            <input type="password" id="confirmPassword" placeholder="Confirm your password" autocomplete="new-password">
+            <button type="button" class="password-toggle" id="togglePass2" aria-label="Show password">
+              <i class="fa-solid fa-eye"></i>
+            </button>
+          </div>
+          <p id="confirmError" class="error">Passwords do not match.</p>
+        </div>
+
+        <div class="terms">
+          <input type="checkbox" id="terms">
+          <label for="terms">I agree to the <a href="404.html">Terms &amp; Privacy</a> for Stackly Real Estate.</label>
+        </div>
+        <p id="termsError" class="error" style="margin-top:-12px;margin-bottom:12px;">Please agree to Terms &amp; Privacy.</p>
+
+        <button type="submit" class="submit-btn" id="registerButton">
+          Create Account <i class="fa-solid fa-arrow-right"></i>
+        </button>
+
+        <div class="auth-link">
+          Already have an account? <a href="login.html">Login</a>
+        </div>
+      </form>
+    </div>
+  </section>
+
+  <!-- NON-PROFIT VISUAL -->
+  <section class="visual-side" aria-label="Stackly Real Estate">
+    <div class="visual-grid"></div>
+
+    <a href="index.html" class="brand" aria-label="Stackly Real Estate home">
+      <img src="assets/img/auth/stackly-logo.webp" alt="Stackly Real Estate">
+    </a>
+
+    <div class="visual-copy">
+      <div class="kicker"><i class="fa-solid fa-circle"></i> Stackly Real Estate</div>
+      <h2>YOUR NEXT CHAPTER <span>STARTS HERE.</span></h2>
+      <p>Homes for sale · Apartments · Trusted property support</p>
+
+      <div class="visual-stats">
+        <div class="visual-stat"><strong>HOMES</strong><span>Curated Listings</span></div>
+        <div class="visual-stat"><strong>LOCAL</strong><span>Neighbourhood Insight</span></div>
+        <div class="visual-stat"><strong>24/7</strong><span>Online Enquiries</span></div>
+      </div>
+    </div>
+  </section>
+
+</div>
+
+<script>
+/* Shared Stackly Real Estate homepage preloader; minimum visible time: 2 seconds. */
+const preloader=document.getElementById('preloader');
+const loaderStarted=performance.now();
+let preloaderClosed=false;
+function closePreloader(){
+  if(preloaderClosed || !preloader) return;
+  preloaderClosed=true;
+  preloader.classList.add('loaded');
+  document.body.classList.remove('loading');
+  document.body.classList.add('page-ready');
+  setTimeout(()=>{if(preloader.isConnected) preloader.remove();},1250);
+}
+function releaseHomepageLoader(){
+  const remaining=Math.max(0,2000-(performance.now()-loaderStarted));
+  setTimeout(closePreloader,remaining);
+}
+if(document.readyState==='complete') releaseHomepageLoader();
+else window.addEventListener('load',releaseHomepageLoader,{once:true});
+setTimeout(closePreloader,6500);
+
+const form=document.getElementById('registerForm');
+  const nameInput=document.getElementById('name');
+  const email=document.getElementById('email');
+  const password=document.getElementById('password');
+  const confirmPassword=document.getElementById('confirmPassword');
+  const role=document.getElementById('role');
+  const terms=document.getElementById('terms');
+
+  const roleOptions=[...document.querySelectorAll('.role-option')];
+  const nameError=document.getElementById('nameError');
+  const roleError=document.getElementById('roleError');
+  const emailError=document.getElementById('emailError');
+  const passError=document.getElementById('passError');
+  const confirmError=document.getElementById('confirmError');
+  const termsError=document.getElementById('termsError');
+  const formStatus=document.getElementById('formStatus');
+  const registerButton=document.getElementById('registerButton');
+
+  const namePattern=/^[A-Za-z ]+$/;
+  const emailPattern=/^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  const passPattern=/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&]).{8,}$/;
+
+  function showStatus(message){
+    formStatus.textContent=message;
+    formStatus.classList.add('show');
+  }
+  function clearStatus(){
+    formStatus.textContent='';
+    formStatus.classList.remove('show');
+  }
+
+  function setupPasswordToggle(button,input){
+    button.addEventListener('click',function(){
+      const show=input.type==='password';
+      input.type=show?'text':'password';
+      const icon=button.querySelector('i');
+      icon.classList.toggle('fa-eye',!show);
+      icon.classList.toggle('fa-eye-slash',show);
+      button.setAttribute('aria-label',show?'Hide password':'Show password');
+    });
+  }
+
+  setupPasswordToggle(document.getElementById('togglePass1'),password);
+  setupPasswordToggle(document.getElementById('togglePass2'),confirmPassword);
+
+  roleOptions.forEach(option=>{
+    option.addEventListener('click',function(){
+      roleOptions.forEach(item=>{
+        item.classList.remove('selected');
+        item.setAttribute('aria-pressed','false');
+      });
+      option.classList.add('selected');
+      option.setAttribute('aria-pressed','true');
+      role.value=option.dataset.value;
+      roleError.classList.remove('show');
+      clearStatus();
+    });
+  });
+
+  nameInput.addEventListener('input',function(){nameError.classList.remove('show');clearStatus()});
+  email.addEventListener('input',function(){emailError.classList.remove('show');clearStatus()});
+  password.addEventListener('input',function(){
+    passError.classList.remove('show');clearStatus();
+    if(confirmPassword.value && password.value===confirmPassword.value) confirmError.classList.remove('show');
+  });
+  confirmPassword.addEventListener('input',function(){confirmError.classList.remove('show');clearStatus()});
+  terms.addEventListener('change',function(){termsError.classList.remove('show');clearStatus()});
+
+  form.addEventListener('submit',function(e){
+    e.preventDefault();
+    let valid=true;
+
+    if(role.value===''){
+      roleError.classList.add('show');valid=false;
+    }else roleError.classList.remove('show');
+
+    if(!namePattern.test(nameInput.value.trim())){
+      nameError.classList.add('show');valid=false;
+    }else nameError.classList.remove('show');
+
+    if(!emailPattern.test(email.value.trim())){
+      emailError.classList.add('show');valid=false;
+    }else emailError.classList.remove('show');
+
+    if(!passPattern.test(password.value)){
+      passError.classList.add('show');valid=false;
+    }else passError.classList.remove('show');
+
+    if(password.value!==confirmPassword.value){
+      confirmError.classList.add('show');valid=false;
+    }else confirmError.classList.remove('show');
+
+    if(!terms.checked){
+      termsError.classList.add('show');valid=false;
+    }else termsError.classList.remove('show');
+
+    if(!valid) return;
+
+    const registeredUser={
+      name:nameInput.value.trim(),
+      email:email.value.trim(),
+      role:role.value.trim(),
+      registeredAt:new Date().toISOString()
+    };
+
+    localStorage.setItem('registeredUser',JSON.stringify(registeredUser));
+
+    showStatus('Account created successfully. Redirecting to login...');
+    registerButton.disabled=true;
+    registerButton.innerHTML='Account Created <i class="fa-solid fa-circle-notch fa-spin"></i>';
+
+    setTimeout(()=>{window.location.href='login.html';},450);
+  });
+</script>
+</body>
+</html>
