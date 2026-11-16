@@ -151,6 +151,63 @@
 }
 </style>
 
+
+<style>
+/* Keep the original call-card appearance and hover animation. */
+.stackly-call-card {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    color: inherit;
+    text-decoration: none;
+    cursor: pointer;
+}
+.stackly-call-card:hover,
+.stackly-call-card:focus {
+    color: inherit;
+    text-decoration: none;
+}
+.stackly-call-card:focus-visible {
+    outline: 2px solid currentColor;
+    outline-offset: 4px;
+    border-radius: 8px;
+}
+
+
+/* Restore the Call Us 24/7 card hover feedback without changing its click-to-call action. */
+@media (hover: hover) and (pointer: fine) and (min-width: 1025px) {
+  .about-wrapper .about-content .about-button-item a.stackly-call-card {
+    transition: transform .28s cubic-bezier(.2,.7,.25,1),
+                box-shadow .28s ease, border-color .28s ease,
+                background-color .28s ease;
+    transform: translateY(0);
+  }
+  .about-wrapper .about-content .about-button-item a.stackly-call-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 28px rgba(20, 32, 55, .14);
+    border-color: rgba(227, 87, 45, .24);
+  }
+  .about-wrapper .about-content .about-button-item a.stackly-call-card:hover .icon {
+    background-color: rgba(227, 87, 45, .28);
+    transition: background-color .28s ease;
+  }
+}
+
+</style>
+<script>
+/* Handle the call card before any theme/delegated click handlers can redirect it. */
+document.addEventListener('click', function (event) {
+    var callCard = event.target.closest && event.target.closest('a.stackly-call-card');
+    if (!callCard) return;
+    event.preventDefault();
+    event.stopPropagation();
+    if (typeof event.stopImmediatePropagation === 'function') {
+        event.stopImmediatePropagation();
+    }
+    window.location.href = 'tel:+9170107927450';
+}, true);
+</script>
+
 </head>
     <body class="stackly-main-page">
 
@@ -522,17 +579,15 @@
                                             <div class="about-button">
                                                 <a href="about.html" class="theme-btn">more about us</a>
                                             </div>
-                                            <div class="about-icon-item">
+                                            <a class="about-icon-item stackly-call-card" href="tel:+9170107927450" aria-label="Call Stackly at +91-70107927450">
                                                 <div class="icon">
-                                                    <img src="assets/img/home-1/icon/call.svg" alt="img">
+                                                    <img src="assets/img/home-1/icon/call.svg" alt="">
                                                 </div>
                                                 <div class="content">
                                                     <span>Call Us 24/7</span>
-                                                    <h3>
-                                                        <a href="tel:+9170107927450">+91-70107927450</a>
-                                                    </h3>
+                                                    <h3>+91-70107927450</h3>
                                                 </div>
-                                            </div>
+                                            </a>
                                         </div>
                                     </div>
                                 </div>
@@ -550,49 +605,49 @@
                             <img src="assets/img/home-1/line-1.png" alt="img">
                         </div>
                         <div class="feature-wrapper">
-                            <div class="feature-card-items">
+                            <div class="feature-card-items" role="link" tabindex="0" aria-label="Explore property type">
                                 <div class="icon">
                                     <img src="assets/img/home-1/icon/01.svg" alt="img">
                                 </div>
                                 <div class="content">
-                                     <h3><a href="property-list.html">Commercial Space</a></h3>
+                                     <h3><a href="404.html">Commercial Space</a></h3>
                                     <span>6 Properties</span>
                                 </div>
                             </div>
-                            <div class="feature-card-items">
+                            <div class="feature-card-items" role="link" tabindex="0" aria-label="Explore property type">
                                 <div class="icon">
                                     <img src="assets/img/home-1/icon/02.svg" alt="img">
                                 </div>
                                 <div class="content">
-                                    <h3><a href="property-list.html">Villas</a></h3>
+                                    <h3><a href="404.html">Villas</a></h3>
                                     <span>6 Properties</span>
                                 </div>
                             </div>
-                            <div class="feature-card-items">
+                            <div class="feature-card-items" role="link" tabindex="0" aria-label="Explore property type">
                                 <div class="icon">
                                     <img src="assets/img/home-1/icon/03.svg" alt="img">
                                 </div>
                                 <div class="content">
-                                     <h3><a href="property-list.html">Apartments</a></h3>
+                                     <h3><a href="404.html">Apartments</a></h3>
                                     <span>6 Properties</span>
                                 </div>
                             </div>
-                            <div class="feature-card-items">
+                            <div class="feature-card-items" role="link" tabindex="0" aria-label="Explore property type">
                                 <div class="icon">
                                     <img src="assets/img/home-1/icon/04.svg" alt="img">
                                 </div>
                                 <div class="content">
-                                    <h3><a href="property-list.html">Office</a></h3>
+                                    <h3><a href="404.html">Office</a></h3>
                                     <span>6 Properties</span>
                                 </div>
                             </div>
-                            <div class="feature-card-items">
+                            <div class="feature-card-items" role="link" tabindex="0" aria-label="Explore property type">
                                 <div class="icon">
                                     <img src="assets/img/home-1/icon/05.svg" alt="img">
                                 </div>
                                 <div class="content">
                                     <h3>
-                                        <a href="property-list.html">Land / Plot</a>
+                                        <a href="404.html">Land / Plot</a>
                                     </h3>
                                     <span>6 Properties</span>
                                 </div>
@@ -1380,11 +1435,11 @@
                         </a>
                         <p>Discover thoughtfully designed homes and premium properties with Stackly. We help you find the right space, in the right place, for the way you want to live.</p>
                         <div class="stackly-footer-social" aria-label="Social media links">
-                            <a href="#" aria-label="Email"><i class="fas fa-envelope"></i></a>
-                            <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
-                            <a href="#" aria-label="X"><svg class="stackly-x-brand-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path fill="currentColor" d="M18.9 2H22l-6.8 7.8L23.2 22h-6.3l-4.9-7.5L5.5 22H2.3l7.3-8.4L1.8 2h6.4l4.4 6.9L18.9 2zm-1.1 18h1.7L7.3 3.9H5.5L17.8 20z"/></svg></a>
-                            <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
-                            <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                            <a href="404.html" aria-label="Email"><i class="fas fa-envelope"></i></a>
+                            <a href="404.html" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                            <a href="404.html" aria-label="X"><svg class="stackly-x-brand-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path fill="currentColor" d="M18.9 2H22l-6.8 7.8L23.2 22h-6.3l-4.9-7.5L5.5 22H2.3l7.3-8.4L1.8 2h6.4l4.4 6.9L18.9 2zm-1.1 18h1.7L7.3 3.9H5.5L17.8 20z"/></svg></a>
+                            <a href="404.html" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                            <a href="404.html" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
                         </div>
                     </div>
                 </div>
@@ -1675,6 +1730,23 @@
 
   setOpen(false);
 })();
+</script>
+
+
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+    document.querySelectorAll('.stackly-property-types-grid .feature-card-items').forEach(function (card) {
+        card.addEventListener('click', function (event) {
+            if (!event.target.closest('a')) window.location.href = '404.html';
+        });
+        card.addEventListener('keydown', function (event) {
+            if (event.key === 'Enter' || event.key === ' ') {
+                event.preventDefault();
+                window.location.href = '404.html';
+            }
+        });
+    });
+});
 </script>
 
 </body>
